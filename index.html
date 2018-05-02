@@ -320,7 +320,7 @@
                 
               
 
-              <time title="创建时间：2018-05-02 14:22:41 / 修改时间：17:24:08" itemprop="dateCreated datePublished" datetime="2018-05-02T14:22:41+08:00">2018-05-02</time>
+              <time title="创建时间：2018-05-02 14:22:41 / 修改时间：18:19:36" itemprop="dateCreated datePublished" datetime="2018-05-02T14:22:41+08:00">2018-05-02</time>
             
 
             
@@ -359,8 +359,7 @@
 
       
         
-          
-            <h1 id="安装需要的软件"><a href="#安装需要的软件" class="headerlink" title="安装需要的软件"></a>安装需要的软件</h1><p>Hexo 刚刚部署完成，现在就部署时候的问题做点记录，已备以后还需要</p>
+          <h1 id="安装需要的软件"><a href="#安装需要的软件" class="headerlink" title="安装需要的软件"></a>安装需要的软件</h1><p>Hexo 刚刚部署完成，现在就部署时候的问题做点记录，已备以后还需要</p>
 <ol>
 <li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJs</a></p>
 </li>
@@ -370,41 +369,14 @@
 </li>
 </ol>
 <h2 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h2><ul>
-<li><p>NodeJs 和 GIT 安装时候，按照默认一路next直到安装完成。</p>
-</li>
-<li><p>使用下面命令来查看是否安装完成</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v </span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<h2 id="HEXO的安装"><a href="#HEXO的安装" class="headerlink" title="HEXO的安装"></a>HEXO的安装</h2><p>新建一个目录/HEXO ，进入目录后打入命令 <code>npm install hexo-cli -g</code></p>
-<p>然后输入<code>npm install hexo --save</code> 如果出现error，提示不是一个空文件夹，就删除文件夹里的内容</p>
-<h2 id="HEXO的命令"><a href="#HEXO的命令" class="headerlink" title="HEXO的命令"></a>HEXO的命令</h2><p>初始化<code>hexo init</code>然后输入<code>npm install</code></p>
-<p>生成网页<code>hexo g</code> </p>
-<p>depoly到git <code>hexo d</code></p>
-<p>win10如果4000端口被占用，本地测试就用</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 8000 </span><br><span class="line">#部署前需要安装的depoly服务</span><br><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure>
-<h1 id="配置GIT信息"><a href="#配置GIT信息" class="headerlink" title="配置GIT信息"></a>配置GIT信息</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;test&quot;</span><br><span class="line">git config --global user.email &quot;test@test.com&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="配置depolyment"><a href="#配置depolyment" class="headerlink" title="配置depolyment"></a>配置depolyment</h2><p>​    打开hexo的_config.yml，depolyment字段内按照如下修改:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:test/test.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h2 id="配置公钥到GITHUB"><a href="#配置公钥到GITHUB" class="headerlink" title="配置公钥到GITHUB"></a>配置公钥到GITHUB</h2><p>​    打开git bash或者win10直接bash，然后输入:</p>
-<p>​    <code>ssh-keygen -t rsa -C  &quot;github email&quot;</code></p>
-<p>​    生成的两个文件，可以看生成时候的目录，打开pub后缀的，把公钥复制到git.io的setting里</p>
-<h1 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h1><p>​    安装next主题前，在themes里自建next目录</p>
-<p>​    输入<code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code></p>
-<p>​    update的方法，进入<code>themes/next</code> 输入<code>git pull</code></p>
-<h2 id="设置启动"><a href="#设置启动" class="headerlink" title="设置启动"></a>设置启动</h2><p>修改hexo的_config.yml，找到<code>theme:</code> 增加<code>next</code></p>
-<p>修改next目录下_config.yml，找到主题<code>\# Scheme Settings</code>，将#去掉就可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">#scheme: Gemini</span><br></pre></td></tr></table></figure>
-<h2 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h2><p>打开hexo的_config.yml,找到<code>language:</code>输入<code>zh-CN</code></p>
-<hr>
-<h2 id="HEXO的命令和其他相关"><a href="#HEXO的命令和其他相关" class="headerlink" title="HEXO的命令和其他相关"></a>HEXO的命令和其他相关</h2><p>写博客的命令</p>
-<p><code>hexo new post &quot;title&quot;</code></p>
-<p>完成以后输入<code>hexo g</code> 和<code>hexo d</code> 完成git部署,组合命令<code>hexo deploy -g</code></p>
-<hr>
-<h2 id="config-yml的注解"><a href="#config-yml的注解" class="headerlink" title="_config.yml的注解"></a>_config.yml的注解</h2><p><strong>需要注意的是冒号后面都要有空格</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">\# Hexo Configuration</span><br><span class="line">\## Docs: http://hexo.io/docs/configuration.html</span><br><span class="line">\## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site #整站的基本信息</span><br><span class="line">title:  #网站标题</span><br><span class="line">subtitle:  #网站副标题</span><br><span class="line">description:  #网站描述</span><br><span class="line">author:   #网站作者，在下方显示</span><br><span class="line">email: #联系邮箱</span><br><span class="line">language: zh-CN #主题实际的文件名称</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"># URL #这项暂不配置，绑定域名后，欲创建sitemap.xml需要配置该项</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing 文章布局、写作格式的定义，不修改</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: true</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format 日期格式，不修改</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination 每页显示文章数，可以自定义，我将10改成了5</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 5</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Disqus Disqus插件，我们会替换成“多说”，不修改</span><br><span class="line">disqus_shortname:</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 自动生成sitemap</span><br><span class="line">sitemap:</span><br><span class="line">path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">path: baidusitemap.xml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Deployment </span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:test/test.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-          
+<li>NodeJs 和 GIT 安装时候，按照默认一路next直到安装完成。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/02/HEXO的安装部署记录/#更多" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
