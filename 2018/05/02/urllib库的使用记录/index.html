@@ -102,20 +102,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ek1n的小栈">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="urllib库的使用记录">
+<meta property="og:url" content="http://yoursite.com/2018/05/02/urllib库的使用记录/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
+<meta property="og:description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T12:41:06.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ek1n的小栈">
+<meta name="twitter:title" content="urllib库的使用记录">
+<meta name="twitter:description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/02/urllib库的使用记录/"/>
 
 
 
@@ -125,7 +129,7 @@
   };
 </script>
 
-  <title>Ek1n的小栈</title>
+  <title>urllib库的使用记录 | Ek1n的小栈</title>
   
 
 
@@ -172,8 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,7 +216,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
@@ -257,9 +260,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -291,11 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/02/urllib库的使用记录/" itemprop="url">
-                  urllib库的使用记录
-                </a>
+          <h1 class="post-title" itemprop="name headline">urllib库的使用记录
               
             
           </h1>
@@ -358,18 +357,25 @@
       
 
       
-        
-          <h1 id="urllib库的使用记录"><a href="#urllib库的使用记录" class="headerlink" title="urllib库的使用记录"></a>urllib库的使用记录</h1><p><strong>parse</strong></p>
+        <h1 id="urllib库的使用记录"><a href="#urllib库的使用记录" class="headerlink" title="urllib库的使用记录"></a>urllib库的使用记录</h1><p><strong>parse</strong></p>
 <p>获取url当中的参数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line">&gt;&gt;&gt;url = <span class="string">r'https://docs.python.org/3.5/search.html?q=parse&amp;check_keywords=yes&amp;area=default'</span></span><br><span class="line">&gt;&gt;&gt;parse = parse.urlparse(url)</span><br><span class="line">&gt;&gt;&gt;parse</span><br><span class="line">parse(scheme=<span class="string">'https'</span>, netloc=<span class="string">'docs.python.org'</span>, path=<span class="string">'/3.5/search.html'</span>, params=<span class="string">''</span>,         query=<span class="string">'q=parse&amp;check_keywords=yes&amp;area=default'</span>, fragment=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/02/urllib库的使用记录/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<p><strong>urlencode</strong></p>
+<ul>
+<li><p>example 1</p>
+<p>将参数encode以后post</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;postDict = &#123;</span><br><span class="line">	<span class="string">'determine_email'</span>:email,</span><br><span class="line">	<span class="string">'user[email]'</span>:email,</span><br><span class="line">	<span class="string">'user[password]'</span>:password,</span><br><span class="line">	<span class="string">'form_key'</span>:<span class="string">'!1231524385238|pybft0L2N0xgs6KVUxd0OH2CSPQ'</span>,</span><br><span class="line">	<span class="string">'context'</span>:<span class="string">'other'</span>,</span><br><span class="line">	<span class="string">'version'</span>:<span class="string">'STANDARD'</span>,</span><br><span class="line">	<span class="string">'http_referer'</span>:<span class="string">'https://www.tumblr.com/logout'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;postData = bytes(urllib.parse.urlencode(postDict).encode())</span><br><span class="line">&gt;&gt;&gt;req = urllib.request.Request(url,data = postDict)</span><br><span class="line">&gt;&gt;&gt;web = urllib.request.urlopen(req)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>example 2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>query = &#123;</span><br><span class="line"><span class="meta">... </span>    <span class="string">'uesr'</span>:<span class="string">'Taeyeon'</span>,</span><br><span class="line"><span class="meta">... </span>    <span class="string">'from'</span>:<span class="string">'Earth'</span></span><br><span class="line"><span class="meta">... </span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parse.urlencode(query)</span><br><span class="line"><span class="string">'uesr=Taeyeon&amp;from=Earth'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'www.taeyeon.com'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>full_url = url+parse.urlencode(query)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>full_url</span><br><span class="line"><span class="string">'www.taeyeon.comuesr=Taeyeon&amp;from=Earth'</span></span><br></pre></td></tr></table></figure>
+<p><strong>quote</strong></p>
+<p>对url进行格式化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'http://www.taeyeon.com/哈哈哈哈哈'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format_url = parse.quote(url)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'format_url'</span>)</span><br><span class="line"><span class="string">'http%3A//www.taeyeon.com/%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>replace_url = format_url.replace(<span class="string">'http%3A'</span>, <span class="string">'http:'</span>)</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -389,166 +395,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/HEXO的安装部署记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ek1n">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ek1n的小栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/02/HEXO的安装部署记录/" itemprop="url">
-                  HEXO的安装部署记录
-                </a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/05/02/HEXO的安装部署记录/" rel="next" title="HEXO的安装部署记录">
+                <i class="fa fa-chevron-left"></i> HEXO的安装部署记录
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-02 14:22:41 / 修改时间：18:19:36" itemprop="dateCreated datePublished" datetime="2018-05-02T14:22:41+08:00">2018-05-02</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="安装需要的软件"><a href="#安装需要的软件" class="headerlink" title="安装需要的软件"></a>安装需要的软件</h1><p>Hexo 刚刚部署完成，现在就部署时候的问题做点记录，已备以后还需要</p>
-<ol>
-<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJs</a></p>
-</li>
-<li><p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">GIT</a></p>
-</li>
-<li><p>安装完成以后的next主题地址(<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a>)</p>
-</li>
-</ol>
-<h2 id="INSTALL"><a href="#INSTALL" class="headerlink" title="INSTALL"></a>INSTALL</h2><ul>
-<li>NodeJs 和 GIT 安装时候，按照默认一路next直到安装完成。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/02/HEXO的安装部署记录/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -558,158 +426,19 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ek1n">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ek1n的小栈">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/02/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-02 13:13:23" itemprop="dateCreated datePublished" datetime="2018-05-02T13:13:23+08:00">2018-05-02</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -730,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -776,6 +514,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib库的使用记录"><span class="nav-number">1.</span> <span class="nav-text">urllib库的使用记录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +657,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
 
   
 
