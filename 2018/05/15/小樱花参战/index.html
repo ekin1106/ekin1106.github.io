@@ -102,24 +102,26 @@
 
 
 
-  <meta name="description" content="搭建samba服务安装samba1sudo apt-get install samba samba-common-bin 配置1nano /etc/samba/smb.conf 在smb.conf的文末添加以下内容 123456[share]           #共享文件的名称， 将在网络上以此名称显示path = /home/share         #共享文件的路径valid users">
+  <meta name="description" content="小樱花参战了！参战了！参战了！！！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树莓派搭建samba服务">
-<meta property="og:url" content="https://ekin1106.github.io/2018/05/07/树莓派搭建samba服务/index.html">
+<meta property="og:title" content="小樱花参战!">
+<meta property="og:url" content="https://ekin1106.github.io/2018/05/15/小樱花参战/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
-<meta property="og:description" content="搭建samba服务安装samba1sudo apt-get install samba samba-common-bin 配置1nano /etc/samba/smb.conf 在smb.conf的文末添加以下内容 123456[share]           #共享文件的名称， 将在网络上以此名称显示path = /home/share         #共享文件的路径valid users">
+<meta property="og:description" content="小樱花参战了！参战了！参战了！！！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-07T11:48:58.288Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/gong.gif">
+<meta property="og:updated_time" content="2018-05-15T12:24:22.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派搭建samba服务">
-<meta name="twitter:description" content="搭建samba服务安装samba1sudo apt-get install samba samba-common-bin 配置1nano /etc/samba/smb.conf 在smb.conf的文末添加以下内容 123456[share]           #共享文件的名称， 将在网络上以此名称显示path = /home/share         #共享文件的路径valid users">
+<meta name="twitter:title" content="小樱花参战!">
+<meta name="twitter:description" content="小樱花参战了！参战了！参战了！！！">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/gong.gif">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ekin1106.github.io/2018/05/07/树莓派搭建samba服务/"/>
+  <link rel="canonical" href="https://ekin1106.github.io/2018/05/15/小樱花参战/"/>
 
 
 
@@ -129,7 +131,7 @@
   };
 </script>
 
-  <title>树莓派搭建samba服务 | Ek1n的小栈</title>
+  <title>小樱花参战! | Ek1n的小栈</title>
   
 
 
@@ -277,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/07/树莓派搭建samba服务/">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/15/小樱花参战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ek1n">
@@ -294,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树莓派搭建samba服务
+          <h1 class="post-title" itemprop="name headline">小樱花参战!
               
             
           </h1>
@@ -319,7 +321,7 @@
                 
               
 
-              <time title="创建时间：2018-05-07 19:46:00 / 修改时间：19:48:58" itemprop="dateCreated datePublished" datetime="2018-05-07T19:46:00+08:00">2018-05-07</time>
+              <time title="创建时间：2018-05-15 20:20:00 / 修改时间：20:24:22" itemprop="dateCreated datePublished" datetime="2018-05-15T20:20:00+08:00">2018-05-15</time>
             
 
             
@@ -357,12 +359,8 @@
       
 
       
-        <h1 id="搭建samba服务"><a href="#搭建samba服务" class="headerlink" title="搭建samba服务"></a>搭建samba服务</h1><h2 id="安装samba"><a href="#安装samba" class="headerlink" title="安装samba"></a>安装samba</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba samba-common-bin</span><br></pre></td></tr></table></figure>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
-<p>在smb.conf的文末添加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[share]           #共享文件的名称， 将在网络上以此名称显示</span><br><span class="line">path = /home/share         #共享文件的路径</span><br><span class="line">valid users = pi        #允许访问的用户</span><br><span class="line">browseable = yes        #允许浏览</span><br><span class="line">public = yes        #共享开放</span><br><span class="line">writable = yes        #可写</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/samba restart</span><br><span class="line">重启samba服务</span><br><span class="line">$ sudo smbpasswd -a pi</span><br><span class="line">New SMB password:</span><br><span class="line">添加密码以后完成</span><br></pre></td></tr></table></figure>
-
+        <p><img src="https://raw.githubusercontent.com/ekin1106/pic_pool/master/gong.gif" alt=""></p>
+<h1 id="小樱花参战了！参战了！参战了！！！"><a href="#小樱花参战了！参战了！参战了！！！" class="headerlink" title="小樱花参战了！参战了！参战了！！！"></a>小樱花参战了！参战了！参战了！！！</h1>
       
     </div>
 
@@ -389,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/05/arm7-上安装webdriver和firefox的坑/" rel="next" title="arm7 上安装webdriver和firefox的坑">
-                <i class="fa fa-chevron-left"></i> arm7 上安装webdriver和firefox的坑
+              <a href="/2018/05/12/centos安装chrome的记录/" rel="next" title="centos安装chrome的记录">
+                <i class="fa fa-chevron-left"></i> centos安装chrome的记录
               </a>
             
           </div>
@@ -398,10 +396,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/08/树莓派定时任务和逝去设置/" rel="prev" title="树莓派定时任务和逝去设置">
-                树莓派定时任务和逝去设置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -515,7 +509,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建samba服务"><span class="nav-number">1.</span> <span class="nav-text">搭建samba服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装samba"><span class="nav-number">1.1.</span> <span class="nav-text">安装samba</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.2.</span> <span class="nav-text">配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小樱花参战了！参战了！参战了！！！"><span class="nav-number">1.</span> <span class="nav-text">小樱花参战了！参战了！参战了！！！</span></a></li></ol></div>
             
 
           </div>
