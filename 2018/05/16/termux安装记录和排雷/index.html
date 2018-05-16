@@ -102,24 +102,28 @@
 
 
 
-  <meta name="description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
+  <meta name="description" content="首先国际惯例上个图 Termux终于搞定了adb自己连自己，然后就可以用python做的小脚本，自动控制设备了，还带图形匹配，哈哈哈 记录下安装方法和一些简单的设置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="urllib库的使用记录">
-<meta property="og:url" content="https://ekin1106.github.io/2018/05/02/urllib库的使用记录/index.html">
+<meta property="og:title" content="termux安装记录和排雷">
+<meta property="og:url" content="https://ekin1106.github.io/2018/05/16/termux安装记录和排雷/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
-<meta property="og:description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
+<meta property="og:description" content="首先国际惯例上个图 Termux终于搞定了adb自己连自己，然后就可以用python做的小脚本，自动控制设备了，还带图形匹配，哈哈哈 记录下安装方法和一些简单的设置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-02T12:41:06.983Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/title.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/Screenshot_20180516153139.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/Screenshot_20180516155229.jpg">
+<meta property="og:updated_time" content="2018-05-16T07:54:58.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="urllib库的使用记录">
-<meta name="twitter:description" content="urllib库的使用记录parse 获取url当中的参数 12345&amp;gt;&amp;gt;&amp;gt;from urllib import parse&amp;gt;&amp;gt;&amp;gt;url = r&apos;https://docs.python.org/3.5/search.html?q=parse&amp;amp;check_keywords=yes&amp;amp;area=default&apos;&amp;gt;&amp;gt;&amp;gt;parse = pa">
+<meta name="twitter:title" content="termux安装记录和排雷">
+<meta name="twitter:description" content="首先国际惯例上个图 Termux终于搞定了adb自己连自己，然后就可以用python做的小脚本，自动控制设备了，还带图形匹配，哈哈哈 记录下安装方法和一些简单的设置">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ekin1106/pic_pool/master/title.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ekin1106.github.io/2018/05/02/urllib库的使用记录/"/>
+  <link rel="canonical" href="https://ekin1106.github.io/2018/05/16/termux安装记录和排雷/"/>
 
 
 
@@ -129,7 +133,7 @@
   };
 </script>
 
-  <title>urllib库的使用记录 | Ek1n的小栈</title>
+  <title>termux安装记录和排雷 | Ek1n的小栈</title>
   
 
 
@@ -277,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/02/urllib库的使用记录/">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/16/termux安装记录和排雷/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ek1n">
@@ -294,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">urllib库的使用记录
+          <h1 class="post-title" itemprop="name headline">termux安装记录和排雷
               
             
           </h1>
@@ -319,7 +323,7 @@
                 
               
 
-              <time title="创建时间：2018-05-02 19:48:34 / 修改时间：20:41:06" itemprop="dateCreated datePublished" datetime="2018-05-02T19:48:34+08:00">2018-05-02</time>
+              <time title="创建时间：2018-05-16 14:15:16 / 修改时间：15:54:58" itemprop="dateCreated datePublished" datetime="2018-05-16T14:15:16+08:00">2018-05-16</time>
             
 
             
@@ -357,24 +361,37 @@
       
 
       
-        <h1 id="urllib库的使用记录"><a href="#urllib库的使用记录" class="headerlink" title="urllib库的使用记录"></a>urllib库的使用记录</h1><p><strong>parse</strong></p>
-<p>获取url当中的参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line">&gt;&gt;&gt;url = <span class="string">r'https://docs.python.org/3.5/search.html?q=parse&amp;check_keywords=yes&amp;area=default'</span></span><br><span class="line">&gt;&gt;&gt;parse = parse.urlparse(url)</span><br><span class="line">&gt;&gt;&gt;parse</span><br><span class="line">parse(scheme=<span class="string">'https'</span>, netloc=<span class="string">'docs.python.org'</span>, path=<span class="string">'/3.5/search.html'</span>, params=<span class="string">''</span>,         query=<span class="string">'q=parse&amp;check_keywords=yes&amp;area=default'</span>, fragment=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><strong>urlencode</strong></p>
-<ul>
-<li><p>example 1</p>
-<p>将参数encode以后post</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;postDict = &#123;</span><br><span class="line">	<span class="string">'determine_email'</span>:email,</span><br><span class="line">	<span class="string">'user[email]'</span>:email,</span><br><span class="line">	<span class="string">'user[password]'</span>:password,</span><br><span class="line">	<span class="string">'form_key'</span>:<span class="string">'!1231524385238|pybft0L2N0xgs6KVUxd0OH2CSPQ'</span>,</span><br><span class="line">	<span class="string">'context'</span>:<span class="string">'other'</span>,</span><br><span class="line">	<span class="string">'version'</span>:<span class="string">'STANDARD'</span>,</span><br><span class="line">	<span class="string">'http_referer'</span>:<span class="string">'https://www.tumblr.com/logout'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;postData = bytes(urllib.parse.urlencode(postDict).encode())</span><br><span class="line">&gt;&gt;&gt;req = urllib.request.Request(url,data = postDict)</span><br><span class="line">&gt;&gt;&gt;web = urllib.request.urlopen(req)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>example 2</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>query = &#123;</span><br><span class="line"><span class="meta">... </span>    <span class="string">'uesr'</span>:<span class="string">'Taeyeon'</span>,</span><br><span class="line"><span class="meta">... </span>    <span class="string">'from'</span>:<span class="string">'Earth'</span></span><br><span class="line"><span class="meta">... </span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>parse.urlencode(query)</span><br><span class="line"><span class="string">'uesr=Taeyeon&amp;from=Earth'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'www.taeyeon.com'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>full_url = url+parse.urlencode(query)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>full_url</span><br><span class="line"><span class="string">'www.taeyeon.comuesr=Taeyeon&amp;from=Earth'</span></span><br></pre></td></tr></table></figure>
-<p><strong>quote</strong></p>
-<p>对url进行格式化</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">'http://www.taeyeon.com/哈哈哈哈哈'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>format_url = parse.quote(url)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'format_url'</span>)</span><br><span class="line"><span class="string">'http%3A//www.taeyeon.com/%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>replace_url = format_url.replace(<span class="string">'http%3A'</span>, <span class="string">'http:'</span>)</span><br></pre></td></tr></table></figure>
+        <p><img src="https://raw.githubusercontent.com/ekin1106/pic_pool/master/title.jpg" alt=""></p>
+<p><strong>首先国际惯例上个图</strong></p>
+<p>Termux终于搞定了adb自己连自己，然后就可以用python做的小脚本，自动控制设备了，还带图形匹配，哈哈哈</p>
+<p>记录下安装方法和一些简单的设置<a id="more"></a></p>
+<h1 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h1><p>安装完termux以后，我没有立即升级，先<code>pkg install openssh</code> ，然后在xshell中生成公钥文件，传输到了手机</p>
+<p>因为termux的终端不支持密码认证，所以需要把生成的pub key放在授权登陆里，具体做法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$&gt;cat id_rsa.pub &gt;&gt; $HOME/.ssh/authorized_keys</span><br><span class="line">开启ssh,默认端口8022,sshd_config中可以更改端口</span><br><span class="line">$&gt;sshd</span><br><span class="line">连接方法</span><br><span class="line">$&gt;ssh username@ip -p 8022(默认端口)</span><br><span class="line">用户名查看方式</span><br><span class="line">$&gt;whoami</span><br><span class="line">ux_xxx</span><br></pre></td></tr></table></figure>
+<p>#更换源 </p>
+<p>直接更换源，方便后面的update，使用中科大的termux源</p>
+<p><code>sed -i &#39;s,http://termux.net,http://mirrors.ustc.edu.cn/termux,&#39; $PREFIX/etc/apt/sources.list</code></p>
+<p>更新完以后重启下termux,然后执行<code>apt update</code> <code>apt upgrade</code></p>
+<h1 id="更改shell样式"><a href="#更改shell样式" class="headerlink" title="更改shell样式"></a>更改shell样式</h1><p>在git上找到了一个安装脚本，一键搞定，要是有安装错误，可以先安装ZSH,curl</p>
+<p><code>sh -c &quot;$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">更改主题</span><br><span class="line">$&gt;vi ~/.zshrc</span><br><span class="line"></span><br><span class="line">修改或增加一句</span><br><span class="line">ZSH_THEME=&quot;pygmlion&quot;</span><br><span class="line">保存，退出，重启termux</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/ekin1106/pic_pool/master/Screenshot_20180516153139.jpg" alt=""></p>
+<h1 id="安装ADB"><a href="#安装ADB" class="headerlink" title="安装ADB"></a>安装ADB</h1><p>我就是为了某游戏自动点击，所以要装ADB啊~auto.js虽然也能达到同样的效果，但是我还没深入研究</p>
+<p>确保手机可以和电脑通过usb连接，pc端操作如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c:\adb devices</span><br><span class="line">连接完以后，不要断开执行如下</span><br><span class="line">c:\adb tcpip 5555</span><br><span class="line">切换到wifi连接模式，拔掉usb</span><br></pre></td></tr></table></figure>
+<p>termux里面没有adb命令，所以需要另外安装进去,从下面地址下载</p>
+<p><code>https://github.com/Magisk-Modules-Repo/adb-Installer/tree/master/bin</code></p>
+<p>把压缩包里的adb和fastboot的文件全都放入termux的<code>/data/data/com.termux/files/usr/bin</code>目录里</p>
+<p>然后修改adb文件到如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/system/bin/sh</span><br><span class="line"># adb: wrapper to run adb from terminal</span><br><span class="line"># osm0sis @ xda-developers</span><br><span class="line"></span><br><span class="line">dir=&quot;$(cd &quot;$(dirname &quot;$0&quot;)&quot;; pwd)&quot;;</span><br><span class="line"></span><br><span class="line">export HOME=/data/data/com.termux/files/home;</span><br><span class="line">export TMPDIR=/data/data/com.termux/files/usr/tmp;</span><br><span class="line">$dir/adb.bin &quot;$@&quot;;</span><br></pre></td></tr></table></figure>
+<p>接着执行<code>chmod +x adb*</code> <code>chmod +x fastboot</code></p>
+<p>重启termux,接着执行<code>adb devices</code> 如果顺利就会出先rsa密钥确认，<strong>确认一出现就要点确认</strong>！！！</p>
+<p>正常的话，就能连接到本身设备拉，同时adb connect也能wifi连接其他设备</p>
+<p>如果出现错误，可以尝试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.android/adb_usb.ini (如果文件或目录不存在，就自行建立)</span><br><span class="line"></span><br><span class="line">增加# ANDROID 3RD PARTY USB VENDOR ID LIST -- DO NOT EDIT.</span><br><span class="line"># USE &apos;android update adb&apos; TO GENERATE.</span><br><span class="line"># 1 USB VENDOR ID PER LINE.</span><br><span class="line">0x04e8      《----04e8就是vendo id设备号，可以在电脑上系统-设备里查看</span><br></pre></td></tr></table></figure>
+<p>一切顺利的话，再次直行<code>adb kill-server</code> <code>adb devices</code>重启服务试试看</p>
+<p><img src="https://raw.githubusercontent.com/ekin1106/pic_pool/master/Screenshot_20180516155229.jpg" alt=""></p>
+<p><strong>关键步骤就是要记得RSA的密钥确认，出来就要点！</strong></p>
 
       
     </div>
@@ -402,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/02/HEXO的安装部署记录/" rel="next" title="HEXO的安装部署记录">
-                <i class="fa fa-chevron-left"></i> HEXO的安装部署记录
+              <a href="/2018/05/15/小樱花参战/" rel="next" title="小樱花参战!">
+                <i class="fa fa-chevron-left"></i> 小樱花参战!
               </a>
             
           </div>
@@ -411,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/03/centos的一些操作记录/" rel="prev" title="centos的一些操作记录">
-                centos的一些操作记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -528,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib库的使用记录"><span class="nav-number">1.</span> <span class="nav-text">urllib库的使用记录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装SSH"><span class="nav-number">1.</span> <span class="nav-text">安装SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更改shell样式"><span class="nav-number">2.</span> <span class="nav-text">更改shell样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装ADB"><span class="nav-number">3.</span> <span class="nav-text">安装ADB</span></a></li></ol></div>
             
 
           </div>
