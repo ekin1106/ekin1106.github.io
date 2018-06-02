@@ -102,24 +102,24 @@
 
 
 
-  <meta name="description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+  <meta name="description" content="一行命令就能开启http服务python3里面一行命令就能使用http，可以用来传输文件啥的 python -m http.server 80">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arm7 上安装webdriver和firefox的坑">
-<meta property="og:url" content="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/index.html">
+<meta property="og:title" content="一行命令开启http">
+<meta property="og:url" content="https://ekin1106.github.io/2018/06/02/一行命令开启http/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
-<meta property="og:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta property="og:description" content="一行命令就能开启http服务python3里面一行命令就能使用http，可以用来传输文件啥的 python -m http.server 80">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-05T03:13:24.179Z">
+<meta property="og:updated_time" content="2018-06-02T10:55:24.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arm7 上安装webdriver和firefox的坑">
-<meta name="twitter:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta name="twitter:title" content="一行命令开启http">
+<meta name="twitter:description" content="一行命令就能开启http服务python3里面一行命令就能使用http，可以用来传输文件啥的 python -m http.server 80">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/"/>
+  <link rel="canonical" href="https://ekin1106.github.io/2018/06/02/一行命令开启http/"/>
 
 
 
@@ -129,7 +129,7 @@
   };
 </script>
 
-  <title>arm7 上安装webdriver和firefox的坑 | Ek1n的小栈</title>
+  <title>一行命令开启http | Ek1n的小栈</title>
   
 
 
@@ -277,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/06/02/一行命令开启http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ek1n">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">arm7 上安装webdriver和firefox的坑
+          <h1 class="post-title" itemprop="name headline">一行命令开启http
               
             
           </h1>
@@ -319,9 +319,13 @@
                 
               
 
-              <time title="创建时间：2018-05-05 11:13:24" itemprop="dateCreated datePublished" datetime="2018-05-05T11:13:24+08:00">2018-05-05</time>
+              <time title="创建时间：2018-06-02 18:53:54 / 修改时间：18:55:24" itemprop="dateCreated datePublished" datetime="2018-06-02T18:53:54+08:00">2018-06-02</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -353,12 +357,8 @@
       
 
       
-        <p>​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了</p>
-<p>​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪</p>
-<p>​    firefox可以直接使用<code>yum install -y firefox</code>安装，另外还需要安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pyvirtualdisplay </span><br><span class="line">yum install Xvfb 或者 yum install Xvfb libXfont xorg-x11-fonts*</span><br></pre></td></tr></table></figure>
-<p>后续python3当中的使用，从国外网站上看到了使用方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line">Full example:</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line"></span><br><span class="line">browser = webdriver.Firefox()</span><br><span class="line">browser.get(<span class="string">'http://www.python.org'</span>)</span><br><span class="line"></span><br><span class="line">browser.close()</span><br><span class="line">display.stop()</span><br></pre></td></tr></table></figure>
+        <h1 id="一行命令就能开启http服务"><a href="#一行命令就能开启http服务" class="headerlink" title="一行命令就能开启http服务"></a>一行命令就能开启http服务</h1><p>python3里面一行命令就能使用http，可以用来传输文件啥的</p>
+<p><code>python -m http.server 80</code></p>
 
       
     </div>
@@ -386,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/centos的一些操作记录/" rel="next" title="centos的一些操作记录">
-                <i class="fa fa-chevron-left"></i> centos的一些操作记录
+              <a href="/2018/05/20/versync的安装linux和termux安装方法/" rel="next" title="versync的安装linux和termux安装方法">
+                <i class="fa fa-chevron-left"></i> versync的安装linux和termux安装方法
               </a>
             
           </div>
@@ -395,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/07/树莓派搭建samba服务/" rel="prev" title="树莓派搭建samba服务">
-                树莓派搭建samba服务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -447,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,6 +498,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一行命令就能开启http服务"><span class="nav-number">1.</span> <span class="nav-text">一行命令就能开启http服务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

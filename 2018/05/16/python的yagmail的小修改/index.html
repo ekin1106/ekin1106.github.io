@@ -102,24 +102,24 @@
 
 
 
-  <meta name="description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+  <meta name="description" content="修改smtp默认地址到smtp.qq.mailyagmail的确是一个缩减劳动时间的生产利器，不过作者默认的smtp是gmail.com 为了方便使用,不用每次都要设定smtp服务器，只需要修改源文件里的地址就可以了 找到yagmail的安装位置 123456789D:\Anaconda3\Lib\site-packages\yagmail修改sender.py找到SMTP类def __init_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arm7 上安装webdriver和firefox的坑">
-<meta property="og:url" content="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/index.html">
+<meta property="og:title" content="python的yagmail的小修改">
+<meta property="og:url" content="https://ekin1106.github.io/2018/05/16/python的yagmail的小修改/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
-<meta property="og:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta property="og:description" content="修改smtp默认地址到smtp.qq.mailyagmail的确是一个缩减劳动时间的生产利器，不过作者默认的smtp是gmail.com 为了方便使用,不用每次都要设定smtp服务器，只需要修改源文件里的地址就可以了 找到yagmail的安装位置 123456789D:\Anaconda3\Lib\site-packages\yagmail修改sender.py找到SMTP类def __init_">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-05T03:13:24.179Z">
+<meta property="og:updated_time" content="2018-05-16T13:22:22.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arm7 上安装webdriver和firefox的坑">
-<meta name="twitter:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta name="twitter:title" content="python的yagmail的小修改">
+<meta name="twitter:description" content="修改smtp默认地址到smtp.qq.mailyagmail的确是一个缩减劳动时间的生产利器，不过作者默认的smtp是gmail.com 为了方便使用,不用每次都要设定smtp服务器，只需要修改源文件里的地址就可以了 找到yagmail的安装位置 123456789D:\Anaconda3\Lib\site-packages\yagmail修改sender.py找到SMTP类def __init_">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/"/>
+  <link rel="canonical" href="https://ekin1106.github.io/2018/05/16/python的yagmail的小修改/"/>
 
 
 
@@ -129,7 +129,7 @@
   };
 </script>
 
-  <title>arm7 上安装webdriver和firefox的坑 | Ek1n的小栈</title>
+  <title>python的yagmail的小修改 | Ek1n的小栈</title>
   
 
 
@@ -277,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/16/python的yagmail的小修改/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ek1n">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">arm7 上安装webdriver和firefox的坑
+          <h1 class="post-title" itemprop="name headline">python的yagmail的小修改
               
             
           </h1>
@@ -319,9 +319,13 @@
                 
               
 
-              <time title="创建时间：2018-05-05 11:13:24" itemprop="dateCreated datePublished" datetime="2018-05-05T11:13:24+08:00">2018-05-05</time>
+              <time title="创建时间：2018-05-16 21:17:02 / 修改时间：21:22:22" itemprop="dateCreated datePublished" datetime="2018-05-16T21:17:02+08:00">2018-05-16</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -353,12 +357,11 @@
       
 
       
-        <p>​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了</p>
-<p>​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪</p>
-<p>​    firefox可以直接使用<code>yum install -y firefox</code>安装，另外还需要安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pyvirtualdisplay </span><br><span class="line">yum install Xvfb 或者 yum install Xvfb libXfont xorg-x11-fonts*</span><br></pre></td></tr></table></figure>
-<p>后续python3当中的使用，从国外网站上看到了使用方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line">Full example:</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line"></span><br><span class="line">browser = webdriver.Firefox()</span><br><span class="line">browser.get(<span class="string">'http://www.python.org'</span>)</span><br><span class="line"></span><br><span class="line">browser.close()</span><br><span class="line">display.stop()</span><br></pre></td></tr></table></figure>
+        <h1 id="修改smtp默认地址到smtp-qq-mail"><a href="#修改smtp默认地址到smtp-qq-mail" class="headerlink" title="修改smtp默认地址到smtp.qq.mail"></a>修改smtp默认地址到smtp.qq.mail</h1><p>yagmail的确是一个缩减劳动时间的生产利器，不过作者默认的smtp是gmail.com</p>
+<p>为了方便使用,不用每次都要设定smtp服务器，只需要修改源文件里的地址就可以了</p>
+<p>找到yagmail的安装位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">D:\Anaconda3\Lib\site-packages\yagmail</span><br><span class="line">修改sender.py</span><br><span class="line">找到SMTP类</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, user=None, password=None, host=<span class="string">'smtp.gmail.com'</span>, port=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                 smtp_starttls=None, smtp_ssl=True, smtp_set_debuglevel=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 smtp_skip_login=False, encoding=<span class="string">"utf-8"</span>, oauth2_file=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                 soft_email_validation=True, **kwargs)</span>:</span></span><br><span class="line">修改host后的地址到smtp.qq.com</span><br><span class="line">保存退出就可以了</span><br></pre></td></tr></table></figure>
+<h2 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS:"></a>TIPS:</h2><p>可以将用户名和密码放入sender.py,这样就可以默认发送，保证安全</p>
 
       
     </div>
@@ -386,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/centos的一些操作记录/" rel="next" title="centos的一些操作记录">
-                <i class="fa fa-chevron-left"></i> centos的一些操作记录
+              <a href="/2018/05/16/termux安装记录和排雷/" rel="next" title="termux安装记录和排雷">
+                <i class="fa fa-chevron-left"></i> termux安装记录和排雷
               </a>
             
           </div>
@@ -396,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/07/树莓派搭建samba服务/" rel="prev" title="树莓派搭建samba服务">
-                树莓派搭建samba服务 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/17/Yagmail的功能解析/" rel="prev" title="Yagmail的功能解析">
+                Yagmail的功能解析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,6 +505,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#修改smtp默认地址到smtp-qq-mail"><span class="nav-number">1.</span> <span class="nav-text">修改smtp默认地址到smtp.qq.mail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIPS"><span class="nav-number">1.1.</span> <span class="nav-text">TIPS:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -102,24 +102,24 @@
 
 
 
-  <meta name="description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+  <meta name="description" content="针对yagmail模块的记录—&amp;gt;&amp;gt;https://github.com/kootenpv/yagmail&amp;lt;&amp;lt;—  作者github地址 yagmail相对以前用python自带的邮件模块使用上来说，真的方便了许多许多 在0.4.94版本以后，作者增加了inline模块 123from yagmail import inlineyag = yagmail.SMTP(&apos;1@qq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="arm7 上安装webdriver和firefox的坑">
-<meta property="og:url" content="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/index.html">
+<meta property="og:title" content="Yagmail的功能解析">
+<meta property="og:url" content="https://ekin1106.github.io/2018/05/17/Yagmail的功能解析/index.html">
 <meta property="og:site_name" content="Ek1n的小栈">
-<meta property="og:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta property="og:description" content="针对yagmail模块的记录—&amp;gt;&amp;gt;https://github.com/kootenpv/yagmail&amp;lt;&amp;lt;—  作者github地址 yagmail相对以前用python自带的邮件模块使用上来说，真的方便了许多许多 在0.4.94版本以后，作者增加了inline模块 123from yagmail import inlineyag = yagmail.SMTP(&apos;1@qq">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-05T03:13:24.179Z">
+<meta property="og:updated_time" content="2018-05-17T11:57:46.223Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="arm7 上安装webdriver和firefox的坑">
-<meta name="twitter:description" content="​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了 ​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪 ​    firefox可以直接使用yum install">
+<meta name="twitter:title" content="Yagmail的功能解析">
+<meta name="twitter:description" content="针对yagmail模块的记录—&amp;gt;&amp;gt;https://github.com/kootenpv/yagmail&amp;lt;&amp;lt;—  作者github地址 yagmail相对以前用python自带的邮件模块使用上来说，真的方便了许多许多 在0.4.94版本以后，作者增加了inline模块 123from yagmail import inlineyag = yagmail.SMTP(&apos;1@qq">
 
 
 
 
 
 
-  <link rel="canonical" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/"/>
+  <link rel="canonical" href="https://ekin1106.github.io/2018/05/17/Yagmail的功能解析/"/>
 
 
 
@@ -129,7 +129,7 @@
   };
 </script>
 
-  <title>arm7 上安装webdriver和firefox的坑 | Ek1n的小栈</title>
+  <title>Yagmail的功能解析 | Ek1n的小栈</title>
   
 
 
@@ -277,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/05/arm7-上安装webdriver和firefox的坑/">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2018/05/17/Yagmail的功能解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ek1n">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">arm7 上安装webdriver和firefox的坑
+          <h1 class="post-title" itemprop="name headline">Yagmail的功能解析
               
             
           </h1>
@@ -319,9 +319,13 @@
                 
               
 
-              <time title="创建时间：2018-05-05 11:13:24" itemprop="dateCreated datePublished" datetime="2018-05-05T11:13:24+08:00">2018-05-05</time>
+              <time title="创建时间：2018-05-17 19:41:56 / 修改时间：19:57:46" itemprop="dateCreated datePublished" datetime="2018-05-17T19:41:56+08:00">2018-05-17</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -353,12 +357,17 @@
       
 
       
-        <p>​    起先在moto x上用linux depoly部署了centos 7 ，后续的使用也不是非常的方便，比如chrome啊firefox啊，因为chroot安装的关系，selenium自动化支持的不是很好（也可能是X太烂了</p>
-<p>​    在安装完miniconda3以后，pip可能要自己安装（记得梯子，一开始没有梯子，尝试了好久都是泪</p>
-<p>​    firefox可以直接使用<code>yum install -y firefox</code>安装，另外还需要安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pyvirtualdisplay </span><br><span class="line">yum install Xvfb 或者 yum install Xvfb libXfont xorg-x11-fonts*</span><br></pre></td></tr></table></figure>
-<p>后续python3当中的使用，从国外网站上看到了使用方法:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line">Full example:</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyvirtualdisplay <span class="keyword">import</span> Display</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">display = Display(visible=<span class="number">0</span>, size=(<span class="number">800</span>, <span class="number">600</span>))</span><br><span class="line">display.start()</span><br><span class="line"></span><br><span class="line">browser = webdriver.Firefox()</span><br><span class="line">browser.get(<span class="string">'http://www.python.org'</span>)</span><br><span class="line"></span><br><span class="line">browser.close()</span><br><span class="line">display.stop()</span><br></pre></td></tr></table></figure>
+        <h1 id="针对yagmail模块的记录"><a href="#针对yagmail模块的记录" class="headerlink" title="针对yagmail模块的记录"></a>针对yagmail模块的记录</h1><p>—&gt;&gt;<strong><a href="https://github.com/kootenpv/yagmail" target="_blank" rel="noopener">https://github.com/kootenpv/yagmail</a></strong>&lt;&lt;—  作者github地址</p>
+<p>yagmail相对以前用python自带的邮件模块使用上来说，真的方便了许多许多</p>
+<p>在0.4.94版本以后，作者增加了inline模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> yagmail <span class="keyword">import</span> inline</span><br><span class="line">yag = yagmail.SMTP(<span class="string">'1@qq.com'</span>,<span class="string">'xf'</span>)</span><br><span class="line">yag.send(<span class="string">'58@qq.com'</span>,<span class="string">'test mail'</span>,inline(<span class="string">'d:/001.jpg'</span>))</span><br></pre></td></tr></table></figure>
+<p>直接就可以在邮件内插入图片，而不是以附件形式发送</p>
+<h2 id="用户名和密码的保存"><a href="#用户名和密码的保存" class="headerlink" title="用户名和密码的保存"></a>用户名和密码的保存</h2><p>作者很贴心的增加了keyring功能，如果yagmail不能正常使用<code>pip install keyring</code></p>
+<p>git上对用户名和密码的使用是这样的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yagmail</span><br><span class="line">yagmail.register(<span class="string">'mygmailusername'</span>, <span class="string">'mygmailpassword'</span>)</span><br></pre></td></tr></table></figure>
+<p>第一次使用的话，可以这样来保存自己的密码，那么程序本身就不需要保存密码了</p>
+<p>以后使用的时候<code>yag = yagmail.SMTP(&#39;mygmailusername&#39;)</code></p>
+<p>就能直接发送邮件了，不得不说真的超贴心</p>
 
       
     </div>
@@ -386,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/centos的一些操作记录/" rel="next" title="centos的一些操作记录">
-                <i class="fa fa-chevron-left"></i> centos的一些操作记录
+              <a href="/2018/05/16/python的yagmail的小修改/" rel="next" title="python的yagmail的小修改">
+                <i class="fa fa-chevron-left"></i> python的yagmail的小修改
               </a>
             
           </div>
@@ -396,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/07/树莓派搭建samba服务/" rel="prev" title="树莓派搭建samba服务">
-                树莓派搭建samba服务 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/20/versync的安装linux和termux安装方法/" rel="prev" title="versync的安装linux和termux安装方法">
+                versync的安装linux和termux安装方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,6 +511,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#针对yagmail模块的记录"><span class="nav-number">1.</span> <span class="nav-text">针对yagmail模块的记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户名和密码的保存"><span class="nav-number">1.1.</span> <span class="nav-text">用户名和密码的保存</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
