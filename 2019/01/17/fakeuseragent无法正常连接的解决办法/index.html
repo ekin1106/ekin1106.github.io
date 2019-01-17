@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="树莓派上和pc上用用到fakeuseragent的时候，因为网络原因有时候无法获取到fake_useragent_0.1.11.json 就会出现连接错误 解决办法很简单，把数据库文件指定到本地文件 pc: fake的安装路径下的fake.py 123456789101112131415161718192021from __future__ import absolute_import, unic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fakeuseragent无法正常连接的解决办法">
+<meta property="og:url" content="https://ekin1106.github.io/2019/01/17/fakeuseragent无法正常连接的解决办法/index.html">
+<meta property="og:site_name" content="Ek1n的小栈">
+<meta property="og:description" content="树莓派上和pc上用用到fakeuseragent的时候，因为网络原因有时候无法获取到fake_useragent_0.1.11.json 就会出现连接错误 解决办法很简单，把数据库文件指定到本地文件 pc: fake的安装路径下的fake.py 123456789101112131415161718192021from __future__ import absolute_import, unic">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-17T12:52:50.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fakeuseragent无法正常连接的解决办法">
+<meta name="twitter:description" content="树莓派上和pc上用用到fakeuseragent的时候，因为网络原因有时候无法获取到fake_useragent_0.1.11.json 就会出现连接错误 解决办法很简单，把数据库文件指定到本地文件 pc: fake的安装路径下的fake.py 123456789101112131415161718192021from __future__ import absolute_import, unic">
+
+
+
+
+
+
+  <link rel="canonical" href="https://ekin1106.github.io/2019/01/17/fakeuseragent无法正常连接的解决办法/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>fakeuseragent无法正常连接的解决办法 | Ek1n的小栈</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ek1n的小栈</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">从小不努力,长大当码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ekin1106.github.io/2019/01/17/fakeuseragent无法正常连接的解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ek1n">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ek1n的小栈">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">fakeuseragent无法正常连接的解决办法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-17 20:48:13 / 修改时间：20:52:50" itemprop="dateCreated datePublished" datetime="2019-01-17T20:48:13+08:00">2019-01-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>树莓派上和pc上用用到fakeuseragent的时候，因为网络原因有时候无法获取到fake_useragent_0.1.11.json</p>
+<p>就会出现连接错误</p>
+<p>解决办法很简单，把数据库文件指定到本地文件</p>
+<p>pc:</p>
+<p>fake的安装路径下的fake.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fake_useragent <span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">from</span> fake_useragent.errors <span class="keyword">import</span> FakeUserAgentError</span><br><span class="line"><span class="keyword">from</span> fake_useragent.log <span class="keyword">import</span> logger</span><br><span class="line"><span class="keyword">from</span> fake_useragent.utils <span class="keyword">import</span> load, load_cached, str_types, update</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FakeUserAgent</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        self,</span></span></span><br><span class="line"><span class="function"><span class="params">        cache=True,</span></span></span><br><span class="line"><span class="function"><span class="params">        use_cache_server=True,</span></span></span><br><span class="line"><span class="function"><span class="params">        #path=settings.DB,</span></span></span><br><span class="line"><span class="function"><span class="params">		path=<span class="string">'C:/Users/ekin1/Documents/fake_useragent_0.1.11.json'</span>,   此处修改到本地文件,树莓派同理</span></span></span><br><span class="line"><span class="function"><span class="params">        fallback=None,</span></span></span><br><span class="line"><span class="function"><span class="params">        verify_ssl=True,</span></span></span><br><span class="line"><span class="function"><span class="params">        safe_attrs=tuple<span class="params">()</span></span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;browsers&quot;: &#123;&quot;firefox&quot;: [&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1&quot;, &quot;Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0) Gecko/20100101 Firefox/33.0&quot;, &quot;Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20130401 Firefox/31.0&quot;, &quot;Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:29.0) Gecko/20120101 Firefox/29.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/29.0&quot;, &quot;Mozilla/5.0 (X11; OpenBSD amd64; rv:28.0) Gecko/20100101 Firefox/28.0&quot;, &quot;Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101  Firefox/28.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:27.3) Gecko/20130101 Firefox/27.3&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64; rv:27.0) Gecko/20121011 Firefox/27.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:25.0) Gecko/20100101 Firefox/25.0&quot;, &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:24.0) Gecko/20100101 Firefox/24.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; rv:22.0) Gecko/20130405 Firefox/23.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20130406 Firefox/23.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:23.0) Gecko/20131011 Firefox/23.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; rv:22.0) Gecko/20130405 Firefox/22.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:22.0) Gecko/20130328 Firefox/22.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:22.0) Gecko/20130405 Firefox/22.0&quot;, &quot;Mozilla/5.0 (Microsoft Windows NT 6.2.9200.0); rv:22.0) Gecko/20130405 Firefox/22.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64; rv:16.0.1) Gecko/20121011 Firefox/21.0.1&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:16.0.1) Gecko/20121011 Firefox/21.0.1&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64; rv:21.0.0) Gecko/20121011 Firefox/21.0.0&quot;, &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:21.0) Gecko/20130331 Firefox/21.0&quot;, &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64; rv:21.0) Gecko/20130514 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; rv:21.0) Gecko/20130326 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20130401 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20130331 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20130330 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:21.0) Gecko/20130401 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:21.0) Gecko/20130328 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 5.1; rv:21.0) Gecko/20130401 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 5.1; rv:21.0) Gecko/20130331 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 5.1; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 5.0; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64;) Gecko/20100101 Firefox/20.0&quot;, &quot;Mozilla/5.0 (Windows x86; rv:19.0) Gecko/20100101 Firefox/19.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20100101 Firefox/19.0&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; rv:14.0) Gecko/20100101 Firefox/18.0.1&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0)  Gecko/20100101 Firefox/18.0&quot;, &quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:17.0) Gecko/20100101 Firefox/17.0.6&quot;], &quot;internetexplorer&quot;: [&quot;Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko&quot;, &quot;Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0;  rv:11.0) like Gecko&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 7.0; InfoPath.3; .NET CLR 3.1.40767; Trident/6.0; en-IN)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/4.0; InfoPath.2; SV1; .NET CLR 2.0.50727; WOW64)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 10.0; Macintosh; Intel Mac OS X 10_7_3; Trident/6.0)&quot;, &quot;Mozilla/4.0 (Compatible; MSIE 8.0; Windows NT 5.2; Trident/6.0)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)&quot;, &quot;Mozilla/1.22 (compatible; MSIE 10.0; Windows 3.1)&quot;, &quot;Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))&quot;, &quot;Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; Media Center PC 6.0; InfoPath.3; MS-RTC LM 8; Zune 4.7)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; Media Center PC 6.0; InfoPath.3; MS-RTC LM 8; Zune 4.7&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Zune 4.0; InfoPath.3; MS-RTC LM 8; .NET4.0C; .NET4.0E)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; chromeframe/12.0.742.112)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Zune 4.0; Tablet PC 2.0; InfoPath.3; .NET4.0C; .NET4.0E)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; yie8)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET CLR 1.1.4322; .NET4.0C; Tablet PC 2.0)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; FunWebProducts)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; chromeframe/13.0.782.215)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; chromeframe/11.0.696.57)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) chromeframe/10.0.648.205&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/4.0; GTB7.4; InfoPath.1; SV1; .NET CLR 2.8.52393; WOW64; en-US)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0; chromeframe/11.0.696.57)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/4.0; GTB7.4; InfoPath.3; SV1; .NET CLR 3.1.76908; WOW64; en-US)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; GTB7.4; InfoPath.2; SV1; .NET CLR 3.3.69573; WOW64; en-US)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 1.0.3705; .NET CLR 1.1.4322)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; InfoPath.1; SV1; .NET CLR 3.8.36217; WOW64; en-US)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; .NET CLR 2.7.58687; SLCC2; Media Center PC 5.0; Zune 3.4; Tablet PC 3.6; InfoPath.3)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.2; Trident/4.0; Media Center PC 4.0; SLCC1; .NET CLR 3.0.04320)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.1; SLCC1; .NET CLR 1.1.4322)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 5.0; Trident/4.0; InfoPath.1; SV1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 3.0.04506.30)&quot;, &quot;Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 5.0; Trident/4.0; FBSMTWB; .NET CLR 2.0.34861; .NET CLR 3.0.3746.3218; .NET CLR 3.5.33652; msn OptimizedIE8;ENUS)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; Media Center PC 6.0; InfoPath.2; MS-RTC LM 8)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; Media Center PC 6.0; InfoPath.2; MS-RTC LM 8&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; Media Center PC 6.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.3; .NET4.0C; .NET4.0E; .NET CLR 3.5.30729; .NET CLR 3.0.30729; MS-RTC LM 8)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; InfoPath.2)&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Zune 3.0)&quot;], &quot;opera&quot;: [&quot;Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16&quot;, &quot;Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14&quot;, &quot;Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0 Opera 12.14&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0) Opera 12.14&quot;, &quot;Opera/12.80 (Windows NT 5.1; U; en) Presto/2.10.289 Version/12.02&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; es-ES) Presto/2.9.181 Version/12.00&quot;, &quot;Opera/9.80 (Windows NT 5.1; U; zh-sg) Presto/2.9.181 Version/12.00&quot;, &quot;Opera/12.0(Windows NT 5.2;U;en)Presto/22.9.168 Version/12.00&quot;, &quot;Opera/12.0(Windows NT 5.1;U;en)Presto/22.9.168 Version/12.00&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) Gecko/20100101 Firefox/14.0 Opera/12.0&quot;, &quot;Opera/9.80 (Windows NT 6.1; WOW64; U; pt) Presto/2.10.229 Version/11.62&quot;, &quot;Opera/9.80 (Windows NT 6.0; U; pl) Presto/2.10.229 Version/11.62&quot;, &quot;Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52&quot;, &quot;Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; de) Presto/2.9.168 Version/11.52&quot;, &quot;Opera/9.80 (Windows NT 5.1; U; en) Presto/2.9.168 Version/11.51&quot;, &quot;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; de) Opera 11.51&quot;, &quot;Opera/9.80 (X11; Linux x86_64; U; fr) Presto/2.9.168 Version/11.50&quot;, &quot;Opera/9.80 (X11; Linux i686; U; hu) Presto/2.9.168 Version/11.50&quot;, &quot;Opera/9.80 (X11; Linux i686; U; ru) Presto/2.8.131 Version/11.11&quot;, &quot;Opera/9.80 (X11; Linux i686; U; es-ES) Presto/2.8.131 Version/11.11&quot;, &quot;Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/5.0 Opera 11.11&quot;, &quot;Opera/9.80 (X11; Linux x86_64; U; bg) Presto/2.8.131 Version/11.10&quot;, &quot;Opera/9.80 (Windows NT 6.0; U; en) Presto/2.8.99 Version/11.10&quot;, &quot;Opera/9.80 (Windows NT 5.1; U; zh-tw) Presto/2.8.131 Version/11.10&quot;, &quot;Opera/9.80 (Windows NT 6.1; Opera Tablet/15165; U; en) Presto/2.8.149 Version/11.1&quot;, &quot;Opera/9.80 (X11; Linux x86_64; U; Ubuntu/10.10 (maverick); pl) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (X11; Linux i686; U; ja) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (X11; Linux i686; U; fr) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; zh-tw) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; zh-cn) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; sv) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; en-US) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; cs) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 6.0; U; pl) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 5.2; U; ru) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 5.1; U;) Presto/2.7.62 Version/11.01&quot;, &quot;Opera/9.80 (Windows NT 5.1; U; cs) Presto/2.7.62 Version/11.01&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.13) Gecko/20101213 Opera/9.80 (Windows NT 6.1; U; zh-tw) Presto/2.7.62 Version/11.01&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; U; nl; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6 Opera 11.01&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; U; de; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6 Opera 11.01&quot;, &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; de) Opera 11.01&quot;, &quot;Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (X11; Linux i686; U; it) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; zh-cn) Presto/2.6.37 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; pl) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; ko) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; fi) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1; U; en-GB) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.1 x64; U; en) Presto/2.7.62 Version/11.00&quot;, &quot;Opera/9.80 (Windows NT 6.0; U; en) Presto/2.7.39 Version/11.00&quot;], &quot;chrome&quot;: [&quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2225.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 4.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.67 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; OpenBSD i386) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1944.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2309.372 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1866.237 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/4E423F&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36 Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10&quot;, &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1664.3 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1664.3 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.16 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1623.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; CrOS i686 4319.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1467.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1464.0 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1500.55 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.90 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; NetBSD) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36&quot;, &quot;Mozilla/5.0 (X11; CrOS i686 3912.101.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36&quot;, &quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.60 Safari/537.17&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.15 (KHTML, like Gecko) Chrome/24.0.1295.0 Safari/537.15&quot;, &quot;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.14 (KHTML, like Gecko) Chrome/24.0.1292.0 Safari/537.14&quot;], &quot;safari&quot;: [&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A&quot;, &quot;Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/534.55.3 (KHTML, like Gecko) Version/5.1.3 Safari/534.53.10&quot;, &quot;Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko ) Version/5.1 Mobile/9B176 Safari/7534.48.3&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; da-dk) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; tr-TR) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; ko-KR) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; fr-FR) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; cs-CZ) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; ja-JP) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_8; zh-cn) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_8; ja-jp) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; ja-jp) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; zh-cn) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; sv-se) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; ko-kr) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; ja-jp) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; it-it) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; fr-fr) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; es-es) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-us) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-gb) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; de-de) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; sv-SE) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; ja-JP) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; de-DE) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; hu-HU) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; de-DE) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; ru-RU) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; ja-JP) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; it-IT) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/534.16+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; fr-ch) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; ar) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Android 2.2; Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-HK) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; tr-TR) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; nb-NO) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 6.0; fr-FR) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-TW) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Windows; U; Windows NT 5.1; ru-RU) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;, &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_8; zh-cn) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5&quot;]&#125;, &quot;randomize&quot;: &#123;&quot;579&quot;: &quot;chrome&quot;, &quot;560&quot;: &quot;chrome&quot;, &quot;784&quot;: &quot;internetexplorer&quot;, &quot;629&quot;: &quot;chrome&quot;, &quot;471&quot;: &quot;chrome&quot;, &quot;973&quot;: &quot;opera&quot;, &quot;330&quot;: &quot;chrome&quot;, &quot;684&quot;: &quot;chrome&quot;, &quot;733&quot;: &quot;chrome&quot;, &quot;868&quot;: &quot;firefox&quot;, &quot;968&quot;: &quot;safari&quot;, &quot;911&quot;: &quot;firefox&quot;, &quot;599&quot;: &quot;chrome&quot;, &quot;426&quot;: &quot;chrome&quot;, &quot;140&quot;: &quot;chrome&quot;, &quot;613&quot;: &quot;chrome&quot;, &quot;878&quot;: &quot;firefox&quot;, &quot;775&quot;: &quot;internetexplorer&quot;, &quot;483&quot;: &quot;chrome&quot;, &quot;278&quot;: &quot;chrome&quot;, &quot;388&quot;: &quot;chrome&quot;, &quot;852&quot;: &quot;firefox&quot;, &quot;294&quot;: &quot;chrome&quot;, &quot;200&quot;: &quot;chrome&quot;, &quot;469&quot;: &quot;chrome&quot;, &quot;438&quot;: &quot;chrome&quot;, &quot;755&quot;: &quot;chrome&quot;, &quot;1&quot;: &quot;chrome&quot;, &quot;508&quot;: &quot;chrome&quot;, &quot;130&quot;: &quot;chrome&quot;, &quot;177&quot;: &quot;chrome&quot;, &quot;642&quot;: &quot;chrome&quot;, &quot;907&quot;: &quot;firefox&quot;, &quot;367&quot;: &quot;chrome&quot;, &quot;838&quot;: &quot;firefox&quot;, &quot;351&quot;: &quot;chrome&quot;, &quot;168&quot;: &quot;chrome&quot;, &quot;761&quot;: &quot;chrome&quot;, &quot;264&quot;: &quot;chrome&quot;, &quot;198&quot;: &quot;chrome&quot;, &quot;553&quot;: &quot;chrome&quot;, &quot;370&quot;: &quot;chrome&quot;, &quot;555&quot;: &quot;chrome&quot;, &quot;498&quot;: &quot;chrome&quot;, &quot;126&quot;: &quot;chrome&quot;, &quot;707&quot;: &quot;chrome&quot;, &quot;174&quot;: &quot;chrome&quot;, &quot;549&quot;: &quot;chrome&quot;, &quot;145&quot;: &quot;chrome&quot;, &quot;169&quot;: &quot;chrome&quot;, &quot;20&quot;: &quot;chrome&quot;, &quot;897&quot;: &quot;firefox&quot;, &quot;473&quot;: &quot;chrome&quot;, &quot;626&quot;: &quot;chrome&quot;, &quot;127&quot;: &quot;chrome&quot;, &quot;602&quot;: &quot;chrome&quot;, &quot;806&quot;: &quot;internetexplorer&quot;, &quot;441&quot;: &quot;chrome&quot;, &quot;717&quot;: &quot;chrome&quot;, &quot;179&quot;: &quot;chrome&quot;, &quot;738&quot;: &quot;chrome&quot;, &quot;931&quot;: &quot;firefox&quot;, &quot;236&quot;: &quot;chrome&quot;, &quot;487&quot;: &quot;chrome&quot;, &quot;376&quot;: &quot;chrome&quot;, &quot;723&quot;: &quot;chrome&quot;, &quot;887&quot;: &quot;firefox&quot;, &quot;94&quot;: &quot;chrome&quot;, &quot;718&quot;: &quot;chrome&quot;, &quot;332&quot;: &quot;chrome&quot;, &quot;187&quot;: &quot;chrome&quot;, &quot;518&quot;: &quot;chrome&quot;, &quot;531&quot;: &quot;chrome&quot;, &quot;446&quot;: &quot;chrome&quot;, &quot;546&quot;: &quot;chrome&quot;, &quot;499&quot;: &quot;chrome&quot;, &quot;813&quot;: &quot;firefox&quot;, &quot;158&quot;: &quot;chrome&quot;, &quot;603&quot;: &quot;chrome&quot;, &quot;565&quot;: &quot;chrome&quot;, &quot;448&quot;: &quot;chrome&quot;, &quot;209&quot;: &quot;chrome&quot;, &quot;952&quot;: &quot;safari&quot;, &quot;355&quot;: &quot;chrome&quot;, &quot;342&quot;: &quot;chrome&quot;, &quot;288&quot;: &quot;chrome&quot;, &quot;842&quot;: &quot;firefox&quot;, &quot;396&quot;: &quot;chrome&quot;, &quot;249&quot;: &quot;chrome&quot;, &quot;196&quot;: &quot;chrome&quot;, &quot;139&quot;: &quot;chrome&quot;, &quot;616&quot;: &quot;chrome&quot;, &quot;474&quot;: &quot;chrome&quot;, &quot;570&quot;: &quot;chrome&quot;, &quot;774&quot;: &quot;internetexplorer&quot;, &quot;386&quot;: &quot;chrome&quot;, &quot;321&quot;: &quot;chrome&quot;, &quot;308&quot;: &quot;chrome&quot;, &quot;461&quot;: &quot;chrome&quot;, &quot;753&quot;: &quot;chrome&quot;, &quot;47&quot;: &quot;chrome&quot;, &quot;302&quot;: &quot;chrome&quot;, &quot;798&quot;: &quot;internetexplorer&quot;, &quot;96&quot;: &quot;chrome&quot;, &quot;575&quot;: &quot;chrome&quot;, &quot;688&quot;: &quot;chrome&quot;, &quot;66&quot;: &quot;chrome&quot;, &quot;479&quot;: &quot;chrome&quot;, &quot;512&quot;: &quot;chrome&quot;, &quot;97&quot;: &quot;chrome&quot;, &quot;863&quot;: &quot;firefox&quot;, &quot;876&quot;: &quot;firefox&quot;, &quot;877&quot;: &quot;firefox&quot;, &quot;432&quot;: &quot;chrome&quot;, &quot;493&quot;: &quot;chrome&quot;, &quot;557&quot;: &quot;chrome&quot;, &quot;452&quot;: &quot;chrome&quot;, &quot;914&quot;: &quot;firefox&quot;, &quot;607&quot;: &quot;chrome&quot;, &quot;916&quot;: &quot;firefox&quot;, &quot;26&quot;: &quot;chrome&quot;, &quot;910&quot;: &quot;firefox&quot;, &quot;681&quot;: &quot;chrome&quot;, &quot;61&quot;: &quot;chrome&quot;, &quot;730&quot;: &quot;chrome&quot;, &quot;865&quot;: &quot;firefox&quot;, &quot;666&quot;: &quot;chrome&quot;, &quot;637&quot;: &quot;chrome&quot;, &quot;335&quot;: &quot;chrome&quot;, &quot;976&quot;: &quot;opera&quot;, &quot;480&quot;: &quot;chrome&quot;, &quot;826&quot;: &quot;firefox&quot;, &quot;895&quot;: &quot;firefox&quot;, &quot;146&quot;: &quot;chrome&quot;, &quot;457&quot;: &quot;chrome&quot;, &quot;961&quot;: &quot;safari&quot;, &quot;465&quot;: &quot;chrome&quot;, &quot;453&quot;: &quot;chrome&quot;, &quot;293&quot;: &quot;chrome&quot;, &quot;195&quot;: &quot;chrome&quot;, &quot;888&quot;: &quot;firefox&quot;, &quot;860&quot;: &quot;firefox&quot;, &quot;523&quot;: &quot;chrome&quot;, &quot;183&quot;: &quot;chrome&quot;, &quot;586&quot;: &quot;chrome&quot;, &quot;528&quot;: &quot;chrome&quot;, &quot;291&quot;: &quot;chrome&quot;, &quot;468&quot;: &quot;chrome&quot;, &quot;960&quot;: &quot;safari&quot;, &quot;148&quot;: &quot;chrome&quot;, &quot;793&quot;: &quot;internetexplorer&quot;, &quot;454&quot;: &quot;chrome&quot;, &quot;142&quot;: &quot;chrome&quot;, &quot;204&quot;: &quot;chrome&quot;, &quot;884&quot;: &quot;firefox&quot;, &quot;118&quot;: &quot;chrome&quot;, &quot;592&quot;: &quot;chrome&quot;, &quot;420&quot;: &quot;chrome&quot;, &quot;661&quot;: &quot;chrome&quot;, &quot;263&quot;: &quot;chrome&quot;, &quot;759&quot;: &quot;chrome&quot;, &quot;749&quot;: &quot;chrome&quot;, &quot;428&quot;: &quot;chrome&quot;, &quot;110&quot;: &quot;chrome&quot;, &quot;632&quot;: &quot;chrome&quot;, &quot;687&quot;: &quot;chrome&quot;, &quot;222&quot;: &quot;chrome&quot;, &quot;22&quot;: &quot;chrome&quot;, &quot;415&quot;: &quot;chrome&quot;, &quot;225&quot;: &quot;chrome&quot;, &quot;366&quot;: &quot;chrome&quot;, &quot;32&quot;: &quot;chrome&quot;, &quot;76&quot;: &quot;chrome&quot;, &quot;936&quot;: &quot;firefox&quot;, &quot;950&quot;: &quot;safari&quot;, &quot;933&quot;: &quot;firefox&quot;, &quot;353&quot;: &quot;chrome&quot;, &quot;114&quot;: &quot;chrome&quot;, &quot;861&quot;: &quot;firefox&quot;, &quot;33&quot;: &quot;chrome&quot;, &quot;99&quot;: &quot;chrome&quot;, &quot;117&quot;: &quot;chrome&quot;, &quot;638&quot;: &quot;chrome&quot;, &quot;433&quot;: &quot;chrome&quot;, &quot;381&quot;: &quot;chrome&quot;, &quot;100&quot;: &quot;chrome&quot;, &quot;258&quot;: &quot;chrome&quot;, &quot;39&quot;: &quot;chrome&quot;, &quot;686&quot;: &quot;chrome&quot;, &quot;945&quot;: &quot;safari&quot;, &quot;824&quot;: &quot;firefox&quot;, &quot;149&quot;: &quot;chrome&quot;, &quot;641&quot;: &quot;chrome&quot;, &quot;266&quot;: &quot;chrome&quot;, &quot;776&quot;: &quot;internetexplorer&quot;, &quot;241&quot;: &quot;chrome&quot;, &quot;903&quot;: &quot;firefox&quot;, &quot;328&quot;: &quot;chrome&quot;, &quot;580&quot;: &quot;chrome&quot;, &quot;186&quot;: &quot;chrome&quot;, &quot;741&quot;: &quot;chrome&quot;, &quot;162&quot;: &quot;chrome&quot;, &quot;665&quot;: &quot;chrome&quot;, &quot;610&quot;: &quot;chrome&quot;, &quot;902&quot;: &quot;firefox&quot;, &quot;628&quot;: &quot;chrome&quot;, &quot;131&quot;: &quot;chrome&quot;, &quot;399&quot;: &quot;chrome&quot;, &quot;77&quot;: &quot;chrome&quot;, &quot;339&quot;: &quot;chrome&quot;, &quot;470&quot;: &quot;chrome&quot;, &quot;731&quot;: &quot;chrome&quot;, &quot;620&quot;: &quot;chrome&quot;, &quot;391&quot;: &quot;chrome&quot;, &quot;400&quot;: &quot;chrome&quot;, &quot;257&quot;: &quot;chrome&quot;, &quot;486&quot;: &quot;chrome&quot;, &quot;544&quot;: &quot;chrome&quot;, &quot;274&quot;: &quot;chrome&quot;, &quot;319&quot;: &quot;chrome&quot;, &quot;254&quot;: &quot;chrome&quot;, &quot;608&quot;: &quot;chrome&quot;, &quot;54&quot;: &quot;chrome&quot;, &quot;27&quot;: &quot;chrome&quot;, &quot;207&quot;: &quot;chrome&quot;, &quot;706&quot;: &quot;chrome&quot;, &quot;422&quot;: &quot;chrome&quot;, &quot;72&quot;: &quot;chrome&quot;, &quot;515&quot;: &quot;chrome&quot;, &quot;271&quot;: &quot;chrome&quot;, &quot;853&quot;: &quot;firefox&quot;, &quot;721&quot;: &quot;chrome&quot;, &quot;649&quot;: &quot;chrome&quot;, &quot;218&quot;: &quot;chrome&quot;, &quot;84&quot;: &quot;chrome&quot;, &quot;152&quot;: &quot;chrome&quot;, &quot;763&quot;: &quot;chrome&quot;, &quot;434&quot;: &quot;chrome&quot;, &quot;871&quot;: &quot;firefox&quot;, &quot;230&quot;: &quot;chrome&quot;, &quot;377&quot;: &quot;chrome&quot;, &quot;896&quot;: &quot;firefox&quot;, &quot;781&quot;: &quot;internetexplorer&quot;, &quot;674&quot;: &quot;chrome&quot;, &quot;791&quot;: &quot;internetexplorer&quot;, &quot;719&quot;: &quot;chrome&quot;, &quot;790&quot;: &quot;internetexplorer&quot;, &quot;844&quot;: &quot;firefox&quot;, &quot;754&quot;: &quot;chrome&quot;, &quot;635&quot;: &quot;chrome&quot;, &quot;593&quot;: &quot;chrome&quot;, &quot;44&quot;: &quot;chrome&quot;, &quot;848&quot;: &quot;firefox&quot;, &quot;598&quot;: &quot;chrome&quot;, &quot;713&quot;: &quot;chrome&quot;, &quot;81&quot;: &quot;chrome&quot;, &quot;816&quot;: &quot;firefox&quot;, &quot;622&quot;: &quot;chrome&quot;, &quot;199&quot;: &quot;chrome&quot;, &quot;932&quot;: &quot;firefox&quot;, &quot;782&quot;: &quot;internetexplorer&quot;, &quot;371&quot;: &quot;chrome&quot;, &quot;232&quot;: &quot;chrome&quot;, &quot;938&quot;: &quot;safari&quot;, &quot;767&quot;: &quot;chrome&quot;, &quot;67&quot;: &quot;chrome&quot;, &quot;361&quot;: &quot;chrome&quot;, &quot;869&quot;: &quot;firefox&quot;, &quot;11&quot;: &quot;chrome&quot;, &quot;63&quot;: &quot;chrome&quot;, &quot;978&quot;: &quot;opera&quot;, &quot;24&quot;: &quot;chrome&quot;, &quot;280&quot;: &quot;chrome&quot;, &quot;59&quot;: &quot;chrome&quot;, &quot;203&quot;: &quot;chrome&quot;, &quot;833&quot;: &quot;firefox&quot;, &quot;385&quot;: &quot;chrome&quot;, &quot;505&quot;: &quot;chrome&quot;, &quot;556&quot;: &quot;chrome&quot;, &quot;795&quot;: &quot;internetexplorer&quot;, &quot;102&quot;: &quot;chrome&quot;, &quot;569&quot;: &quot;chrome&quot;, &quot;334&quot;: &quot;chrome&quot;, &quot;467&quot;: &quot;chrome&quot;, &quot;51&quot;: &quot;chrome&quot;, &quot;669&quot;: &quot;chrome&quot;, &quot;797&quot;: &quot;internetexplorer&quot;, &quot;574&quot;: &quot;chrome&quot;, &quot;407&quot;: &quot;chrome&quot;, &quot;138&quot;: &quot;chrome&quot;, &quot;90&quot;: &quot;chrome&quot;, &quot;240&quot;: &quot;chrome&quot;, &quot;191&quot;: &quot;chrome&quot;, &quot;890&quot;: &quot;firefox&quot;, &quot;646&quot;: &quot;chrome&quot;, &quot;982&quot;: &quot;opera&quot;, &quot;697&quot;: &quot;chrome&quot;, &quot;870&quot;: &quot;firefox&quot;, &quot;577&quot;: &quot;chrome&quot;, &quot;922&quot;: &quot;firefox&quot;, &quot;419&quot;: &quot;chrome&quot;, &quot;86&quot;: &quot;chrome&quot;, &quot;679&quot;: &quot;chrome&quot;, &quot;830&quot;: &quot;firefox&quot;, &quot;941&quot;: &quot;safari&quot;, &quot;563&quot;: &quot;chrome&quot;, &quot;107&quot;: &quot;chrome&quot;, &quot;392&quot;: &quot;chrome&quot;, &quot;533&quot;: &quot;chrome&quot;, &quot;683&quot;: &quot;chrome&quot;, &quot;583&quot;: &quot;chrome&quot;, &quot;501&quot;: &quot;chrome&quot;, &quot;374&quot;: &quot;chrome&quot;, &quot;828&quot;: &quot;firefox&quot;, &quot;942&quot;: &quot;safari&quot;, &quot;909&quot;: &quot;firefox&quot;, &quot;362&quot;: &quot;chrome&quot;, &quot;930&quot;: &quot;firefox&quot;, &quot;630&quot;: &quot;chrome&quot;, &quot;636&quot;: &quot;chrome&quot;, &quot;227&quot;: &quot;chrome&quot;, &quot;634&quot;: &quot;chrome&quot;, &quot;875&quot;: &quot;firefox&quot;, &quot;745&quot;: &quot;chrome&quot;, &quot;872&quot;: &quot;firefox&quot;, &quot;609&quot;: &quot;chrome&quot;, &quot;520&quot;: &quot;chrome&quot;, &quot;821&quot;: &quot;firefox&quot;, &quot;983&quot;: &quot;opera&quot;, &quot;394&quot;: &quot;chrome&quot;, &quot;947&quot;: &quot;safari&quot;, &quot;182&quot;: &quot;chrome&quot;, &quot;747&quot;: &quot;chrome&quot;, &quot;439&quot;: &quot;chrome&quot;, &quot;716&quot;: &quot;chrome&quot;, &quot;728&quot;: &quot;chrome&quot;, &quot;625&quot;: &quot;chrome&quot;, &quot;846&quot;: &quot;firefox&quot;, &quot;654&quot;: &quot;chrome&quot;, &quot;815&quot;: &quot;firefox&quot;, &quot;482&quot;: &quot;chrome&quot;, &quot;808&quot;: &quot;internetexplorer&quot;, &quot;893&quot;: &quot;firefox&quot;, &quot;605&quot;: &quot;chrome&quot;, &quot;50&quot;: &quot;chrome&quot;, &quot;762&quot;: &quot;chrome&quot;, &quot;786&quot;: &quot;internetexplorer&quot;, &quot;212&quot;: &quot;chrome&quot;, &quot;972&quot;: &quot;opera&quot;, &quot;588&quot;: &quot;chrome&quot;, &quot;823&quot;: &quot;firefox&quot;, &quot;967&quot;: &quot;safari&quot;, &quot;548&quot;: &quot;chrome&quot;, &quot;659&quot;: &quot;chrome&quot;, &quot;956&quot;: &quot;safari&quot;, &quot;980&quot;: &quot;opera&quot;, &quot;78&quot;: &quot;chrome&quot;, &quot;74&quot;: &quot;chrome&quot;, &quot;299&quot;: &quot;chrome&quot;, &quot;477&quot;: &quot;chrome&quot;, &quot;23&quot;: &quot;chrome&quot;, &quot;136&quot;: &quot;chrome&quot;, &quot;530&quot;: &quot;chrome&quot;, &quot;975&quot;: &quot;opera&quot;, &quot;881&quot;: &quot;firefox&quot;, &quot;253&quot;: &quot;chrome&quot;, &quot;185&quot;: &quot;chrome&quot;, &quot;3&quot;: &quot;chrome&quot;, &quot;108&quot;: &quot;chrome&quot;, &quot;87&quot;: &quot;chrome&quot;, &quot;984&quot;: &quot;opera&quot;, &quot;211&quot;: &quot;chrome&quot;, &quot;514&quot;: &quot;chrome&quot;, &quot;898&quot;: &quot;firefox&quot;, &quot;359&quot;: &quot;chrome&quot;, &quot;543&quot;: &quot;chrome&quot;, &quot;82&quot;: &quot;chrome&quot;, &quot;803&quot;: &quot;internetexplorer&quot;, &quot;891&quot;: &quot;firefox&quot;, &quot;324&quot;: &quot;chrome&quot;, &quot;685&quot;: &quot;chrome&quot;, &quot;957&quot;: &quot;safari&quot;, &quot;748&quot;: &quot;chrome&quot;, &quot;633&quot;: &quot;chrome&quot;, &quot;757&quot;: &quot;chrome&quot;, &quot;519&quot;: &quot;chrome&quot;, &quot;651&quot;: &quot;chrome&quot;, &quot;495&quot;: &quot;chrome&quot;, &quot;954&quot;: &quot;safari&quot;, &quot;507&quot;: &quot;chrome&quot;, &quot;943&quot;: &quot;safari&quot;, &quot;829&quot;: &quot;firefox&quot;, &quot;882&quot;: &quot;firefox&quot;, &quot;71&quot;: &quot;chrome&quot;, &quot;28&quot;: &quot;chrome&quot;, &quot;509&quot;: &quot;chrome&quot;, &quot;510&quot;: &quot;chrome&quot;, &quot;237&quot;: &quot;chrome&quot;, &quot;874&quot;: &quot;firefox&quot;, &quot;802&quot;: &quot;internetexplorer&quot;, &quot;103&quot;: &quot;chrome&quot;, &quot;885&quot;: &quot;firefox&quot;, &quot;725&quot;: &quot;chrome&quot;, &quot;648&quot;: &quot;chrome&quot;, &quot;345&quot;: &quot;chrome&quot;, &quot;184&quot;: &quot;chrome&quot;, &quot;689&quot;: &quot;chrome&quot;, &quot;180&quot;: &quot;chrome&quot;, &quot;946&quot;: &quot;safari&quot;, &quot;488&quot;: &quot;chrome&quot;, &quot;751&quot;: &quot;chrome&quot;, &quot;255&quot;: &quot;chrome&quot;, &quot;645&quot;: &quot;chrome&quot;, &quot;847&quot;: &quot;firefox&quot;, &quot;734&quot;: &quot;chrome&quot;, &quot;918&quot;: &quot;firefox&quot;, &quot;10&quot;: &quot;chrome&quot;, &quot;643&quot;: &quot;chrome&quot;, &quot;395&quot;: &quot;chrome&quot;, &quot;172&quot;: &quot;chrome&quot;, &quot;714&quot;: &quot;chrome&quot;, &quot;490&quot;: &quot;chrome&quot;, &quot;193&quot;: &quot;chrome&quot;, &quot;408&quot;: &quot;chrome&quot;, &quot;974&quot;: &quot;opera&quot;, &quot;406&quot;: &quot;chrome&quot;, &quot;462&quot;: &quot;chrome&quot;, &quot;673&quot;: &quot;chrome&quot;, &quot;678&quot;: &quot;chrome&quot;, &quot;691&quot;: &quot;chrome&quot;, &quot;478&quot;: &quot;chrome&quot;, &quot;908&quot;: &quot;firefox&quot;, &quot;7&quot;: &quot;chrome&quot;, &quot;595&quot;: &quot;chrome&quot;, &quot;756&quot;: &quot;chrome&quot;, &quot;496&quot;: &quot;chrome&quot;, &quot;155&quot;: &quot;chrome&quot;, &quot;587&quot;: &quot;chrome&quot;, &quot;959&quot;: &quot;safari&quot;, &quot;219&quot;: &quot;chrome&quot;, &quot;189&quot;: &quot;chrome&quot;, &quot;95&quot;: &quot;chrome&quot;, &quot;101&quot;: &quot;chrome&quot;, &quot;208&quot;: &quot;chrome&quot;, &quot;760&quot;: &quot;chrome&quot;, &quot;692&quot;: &quot;chrome&quot;, &quot;698&quot;: &quot;chrome&quot;, &quot;640&quot;: &quot;chrome&quot;, &quot;40&quot;: &quot;chrome&quot;, &quot;164&quot;: &quot;chrome&quot;, &quot;357&quot;: &quot;chrome&quot;, &quot;223&quot;: &quot;chrome&quot;, &quot;163&quot;: &quot;chrome&quot;, &quot;696&quot;: &quot;chrome&quot;, &quot;451&quot;: &quot;chrome&quot;, &quot;46&quot;: &quot;chrome&quot;, &quot;8&quot;: &quot;chrome&quot;, &quot;596&quot;: &quot;chrome&quot;, &quot;965&quot;: &quot;safari&quot;, &quot;297&quot;: &quot;chrome&quot;, &quot;167&quot;: &quot;chrome&quot;, &quot;310&quot;: &quot;chrome&quot;, &quot;449&quot;: &quot;chrome&quot;, &quot;111&quot;: &quot;chrome&quot;, &quot;568&quot;: &quot;chrome&quot;, &quot;837&quot;: &quot;firefox&quot;, &quot;323&quot;: &quot;chrome&quot;, &quot;657&quot;: &quot;chrome&quot;, &quot;690&quot;: &quot;chrome&quot;, &quot;758&quot;: &quot;chrome&quot;, &quot;727&quot;: &quot;chrome&quot;, &quot;382&quot;: &quot;chrome&quot;, &quot;188&quot;: &quot;chrome&quot;, &quot;839&quot;: &quot;firefox&quot;, &quot;221&quot;: &quot;chrome&quot;, &quot;963&quot;: &quot;safari&quot;, &quot;581&quot;: &quot;chrome&quot;, &quot;56&quot;: &quot;chrome&quot;, &quot;68&quot;: &quot;chrome&quot;, &quot;489&quot;: &quot;chrome&quot;, &quot;346&quot;: &quot;chrome&quot;, &quot;437&quot;: &quot;chrome&quot;, &quot;915&quot;: &quot;firefox&quot;, &quot;25&quot;: &quot;chrome&quot;, &quot;268&quot;: &quot;chrome&quot;, &quot;708&quot;: &quot;chrome&quot;, &quot;559&quot;: &quot;chrome&quot;, &quot;801&quot;: &quot;internetexplorer&quot;, &quot;327&quot;: &quot;chrome&quot;, &quot;341&quot;: &quot;chrome&quot;, &quot;464&quot;: &quot;chrome&quot;, &quot;133&quot;: &quot;chrome&quot;, &quot;905&quot;: &quot;firefox&quot;, &quot;92&quot;: &quot;chrome&quot;, &quot;343&quot;: &quot;chrome&quot;, &quot;948&quot;: &quot;safari&quot;, &quot;627&quot;: &quot;chrome&quot;, &quot;792&quot;: &quot;internetexplorer&quot;, &quot;246&quot;: &quot;chrome&quot;, &quot;37&quot;: &quot;chrome&quot;, &quot;466&quot;: &quot;chrome&quot;, &quot;75&quot;: &quot;chrome&quot;, &quot;134&quot;: &quot;chrome&quot;, &quot;79&quot;: &quot;chrome&quot;, &quot;401&quot;: &quot;chrome&quot;, &quot;920&quot;: &quot;firefox&quot;, &quot;373&quot;: &quot;chrome&quot;, &quot;171&quot;: &quot;chrome&quot;, &quot;639&quot;: &quot;chrome&quot;, &quot;527&quot;: &quot;chrome&quot;, &quot;425&quot;: &quot;chrome&quot;, &quot;550&quot;: &quot;chrome&quot;, &quot;521&quot;: &quot;chrome&quot;, &quot;715&quot;: &quot;chrome&quot;, &quot;547&quot;: &quot;chrome&quot;, &quot;845&quot;: &quot;firefox&quot;, &quot;660&quot;: &quot;chrome&quot;, &quot;664&quot;: &quot;chrome&quot;, &quot;2&quot;: &quot;chrome&quot;, &quot;151&quot;: &quot;chrome&quot;, &quot;460&quot;: &quot;chrome&quot;, &quot;787&quot;: &quot;internetexplorer&quot;, &quot;387&quot;: &quot;chrome&quot;, &quot;742&quot;: &quot;chrome&quot;, &quot;305&quot;: &quot;chrome&quot;, &quot;614&quot;: &quot;chrome&quot;, &quot;700&quot;: &quot;chrome&quot;, &quot;545&quot;: &quot;chrome&quot;, &quot;132&quot;: &quot;chrome&quot;, &quot;201&quot;: &quot;chrome&quot;, &quot;497&quot;: &quot;chrome&quot;, &quot;372&quot;: &quot;chrome&quot;, &quot;336&quot;: &quot;chrome&quot;, &quot;964&quot;: &quot;safari&quot;, &quot;369&quot;: &quot;chrome&quot;, &quot;724&quot;: &quot;chrome&quot;, &quot;927&quot;: &quot;firefox&quot;, &quot;235&quot;: &quot;chrome&quot;, &quot;143&quot;: &quot;chrome&quot;, &quot;281&quot;: &quot;chrome&quot;, &quot;671&quot;: &quot;chrome&quot;, &quot;205&quot;: &quot;chrome&quot;, &quot;704&quot;: &quot;chrome&quot;, &quot;344&quot;: &quot;chrome&quot;, &quot;818&quot;: &quot;firefox&quot;, &quot;970&quot;: &quot;opera&quot;, &quot;303&quot;: &quot;chrome&quot;, &quot;104&quot;: &quot;chrome&quot;, &quot;410&quot;: &quot;chrome&quot;, &quot;855&quot;: &quot;firefox&quot;, &quot;552&quot;: &quot;chrome&quot;, &quot;536&quot;: &quot;chrome&quot;, &quot;928&quot;: &quot;firefox&quot;, &quot;623&quot;: &quot;chrome&quot;, &quot;322&quot;: &quot;chrome&quot;, &quot;722&quot;: &quot;chrome&quot;, &quot;618&quot;: &quot;chrome&quot;, &quot;175&quot;: &quot;chrome&quot;, &quot;873&quot;: &quot;firefox&quot;, &quot;695&quot;: &quot;chrome&quot;, &quot;851&quot;: &quot;firefox&quot;, &quot;532&quot;: &quot;chrome&quot;, &quot;573&quot;: &quot;chrome&quot;, &quot;210&quot;: &quot;chrome&quot;, &quot;720&quot;: &quot;chrome&quot;, &quot;15&quot;: &quot;chrome&quot;, &quot;190&quot;: &quot;chrome&quot;, &quot;693&quot;: &quot;chrome&quot;, &quot;409&quot;: &quot;chrome&quot;, &quot;856&quot;: &quot;firefox&quot;, &quot;656&quot;: &quot;chrome&quot;, &quot;450&quot;: &quot;chrome&quot;, &quot;442&quot;: &quot;chrome&quot;, &quot;275&quot;: &quot;chrome&quot;, &quot;259&quot;: &quot;chrome&quot;, &quot;261&quot;: &quot;chrome&quot;, &quot;424&quot;: &quot;chrome&quot;, &quot;445&quot;: &quot;chrome&quot;, &quot;892&quot;: &quot;firefox&quot;, &quot;485&quot;: &quot;chrome&quot;, &quot;764&quot;: &quot;chrome&quot;, &quot;284&quot;: &quot;chrome&quot;, &quot;443&quot;: &quot;chrome&quot;, &quot;109&quot;: &quot;chrome&quot;, &quot;272&quot;: &quot;chrome&quot;, &quot;472&quot;: &quot;chrome&quot;, &quot;766&quot;: &quot;chrome&quot;, &quot;850&quot;: &quot;firefox&quot;, &quot;929&quot;: &quot;firefox&quot;, &quot;45&quot;: &quot;chrome&quot;, &quot;699&quot;: &quot;chrome&quot;, &quot;123&quot;: &quot;chrome&quot;, &quot;585&quot;: &quot;chrome&quot;, &quot;295&quot;: &quot;chrome&quot;, &quot;934&quot;: &quot;firefox&quot;, &quot;423&quot;: &quot;chrome&quot;, &quot;121&quot;: &quot;chrome&quot;, &quot;252&quot;: &quot;chrome&quot;, &quot;606&quot;: &quot;chrome&quot;, &quot;591&quot;: &quot;chrome&quot;, &quot;411&quot;: &quot;chrome&quot;, &quot;879&quot;: &quot;firefox&quot;, &quot;244&quot;: &quot;chrome&quot;, &quot;769&quot;: &quot;chrome&quot;, &quot;886&quot;: &quot;firefox&quot;, &quot;958&quot;: &quot;safari&quot;, &quot;13&quot;: &quot;chrome&quot;, &quot;900&quot;: &quot;firefox&quot;, &quot;119&quot;: &quot;chrome&quot;, &quot;615&quot;: &quot;chrome&quot;, &quot;867&quot;: &quot;firefox&quot;, &quot;812&quot;: &quot;internetexplorer&quot;, &quot;906&quot;: &quot;firefox&quot;, &quot;220&quot;: &quot;chrome&quot;, &quot;779&quot;: &quot;internetexplorer&quot;, &quot;412&quot;: &quot;chrome&quot;, &quot;789&quot;: &quot;internetexplorer&quot;, &quot;285&quot;: &quot;chrome&quot;, &quot;913&quot;: &quot;firefox&quot;, &quot;19&quot;: &quot;chrome&quot;, &quot;306&quot;: &quot;chrome&quot;, &quot;52&quot;: &quot;chrome&quot;, &quot;282&quot;: &quot;chrome&quot;, &quot;511&quot;: &quot;chrome&quot;, &quot;524&quot;: &quot;chrome&quot;, &quot;561&quot;: &quot;chrome&quot;, &quot;309&quot;: &quot;chrome&quot;, &quot;919&quot;: &quot;firefox&quot;, &quot;744&quot;: &quot;chrome&quot;, &quot;494&quot;: &quot;chrome&quot;, &quot;16&quot;: &quot;chrome&quot;, &quot;358&quot;: &quot;chrome&quot;, &quot;650&quot;: &quot;chrome&quot;, &quot;384&quot;: &quot;chrome&quot;, &quot;245&quot;: &quot;chrome&quot;, &quot;243&quot;: &quot;chrome&quot;, &quot;290&quot;: &quot;chrome&quot;, &quot;463&quot;: &quot;chrome&quot;, &quot;379&quot;: &quot;chrome&quot;, &quot;430&quot;: &quot;chrome&quot;, &quot;69&quot;: &quot;chrome&quot;, &quot;29&quot;: &quot;chrome&quot;, &quot;594&quot;: &quot;chrome&quot;, &quot;170&quot;: &quot;chrome&quot;, &quot;564&quot;: &quot;chrome&quot;, &quot;820&quot;: &quot;firefox&quot;, &quot;737&quot;: &quot;chrome&quot;, &quot;702&quot;: &quot;chrome&quot;, &quot;216&quot;: &quot;chrome&quot;, &quot;34&quot;: &quot;chrome&quot;, &quot;93&quot;: &quot;chrome&quot;, &quot;538&quot;: &quot;chrome&quot;, &quot;819&quot;: &quot;firefox&quot;, &quot;675&quot;: &quot;chrome&quot;, &quot;38&quot;: &quot;chrome&quot;, &quot;571&quot;: &quot;chrome&quot;, &quot;214&quot;: &quot;chrome&quot;, &quot;298&quot;: &quot;chrome&quot;, &quot;112&quot;: &quot;chrome&quot;, &quot;273&quot;: &quot;chrome&quot;, &quot;778&quot;: &quot;internetexplorer&quot;, &quot;153&quot;: &quot;chrome&quot;, &quot;804&quot;: &quot;internetexplorer&quot;, &quot;326&quot;: &quot;chrome&quot;, &quot;431&quot;: &quot;chrome&quot;, &quot;31&quot;: &quot;chrome&quot;, &quot;137&quot;: &quot;chrome&quot;, &quot;840&quot;: &quot;firefox&quot;, &quot;83&quot;: &quot;chrome&quot;, &quot;701&quot;: &quot;chrome&quot;, &quot;256&quot;: &quot;chrome&quot;, &quot;5&quot;: &quot;chrome&quot;, &quot;331&quot;: &quot;chrome&quot;, &quot;617&quot;: &quot;chrome&quot;, &quot;206&quot;: &quot;chrome&quot;, &quot;383&quot;: &quot;chrome&quot;, &quot;159&quot;: &quot;chrome&quot;, &quot;405&quot;: &quot;chrome&quot;, &quot;194&quot;: &quot;chrome&quot;, &quot;0&quot;: &quot;chrome&quot;, &quot;315&quot;: &quot;chrome&quot;, &quot;534&quot;: &quot;chrome&quot;, &quot;192&quot;: &quot;chrome&quot;, &quot;880&quot;: &quot;firefox&quot;, &quot;125&quot;: &quot;chrome&quot;, &quot;814&quot;: &quot;firefox&quot;, &quot;414&quot;: &quot;chrome&quot;, &quot;421&quot;: &quot;chrome&quot;, &quot;161&quot;: &quot;chrome&quot;, &quot;289&quot;: &quot;chrome&quot;, &quot;601&quot;: &quot;chrome&quot;, &quot;644&quot;: &quot;chrome&quot;, &quot;42&quot;: &quot;chrome&quot;, &quot;862&quot;: &quot;firefox&quot;, &quot;48&quot;: &quot;chrome&quot;, &quot;64&quot;: &quot;chrome&quot;, &quot;584&quot;: &quot;chrome&quot;, &quot;300&quot;: &quot;chrome&quot;, &quot;429&quot;: &quot;chrome&quot;, &quot;166&quot;: &quot;chrome&quot;, &quot;129&quot;: &quot;chrome&quot;, &quot;49&quot;: &quot;chrome&quot;, &quot;484&quot;: &quot;chrome&quot;, &quot;827&quot;: &quot;firefox&quot;, &quot;115&quot;: &quot;chrome&quot;, &quot;296&quot;: &quot;chrome&quot;, &quot;393&quot;: &quot;chrome&quot;, &quot;440&quot;: &quot;chrome&quot;, &quot;73&quot;: &quot;chrome&quot;, &quot;854&quot;: &quot;firefox&quot;, &quot;917&quot;: &quot;firefox&quot;, &quot;301&quot;: &quot;chrome&quot;, &quot;349&quot;: &quot;chrome&quot;, &quot;677&quot;: &quot;chrome&quot;, &quot;492&quot;: &quot;chrome&quot;, &quot;597&quot;: &quot;chrome&quot;, &quot;12&quot;: &quot;chrome&quot;, &quot;647&quot;: &quot;chrome&quot;, &quot;402&quot;: &quot;chrome&quot;, &quot;286&quot;: &quot;chrome&quot;, &quot;726&quot;: &quot;chrome&quot;, &quot;141&quot;: &quot;chrome&quot;, &quot;621&quot;: &quot;chrome&quot;, &quot;238&quot;: &quot;chrome&quot;, &quot;590&quot;: &quot;chrome&quot;, &quot;540&quot;: &quot;chrome&quot;, &quot;80&quot;: &quot;chrome&quot;, &quot;260&quot;: &quot;chrome&quot;, &quot;746&quot;: &quot;chrome&quot;, &quot;516&quot;: &quot;chrome&quot;, &quot;796&quot;: &quot;internetexplorer&quot;, &quot;348&quot;: &quot;chrome&quot;, &quot;899&quot;: &quot;firefox&quot;, &quot;836&quot;: &quot;firefox&quot;, &quot;711&quot;: &quot;chrome&quot;, &quot;663&quot;: &quot;chrome&quot;, &quot;455&quot;: &quot;chrome&quot;, &quot;849&quot;: &quot;firefox&quot;, &quot;368&quot;: &quot;chrome&quot;, &quot;304&quot;: &quot;chrome&quot;, &quot;525&quot;: &quot;chrome&quot;, &quot;375&quot;: &quot;chrome&quot;, &quot;794&quot;: &quot;internetexplorer&quot;, &quot;949&quot;: &quot;safari&quot;, &quot;611&quot;: &quot;chrome&quot;, &quot;60&quot;: &quot;chrome&quot;, &quot;785&quot;: &quot;internetexplorer&quot;, &quot;481&quot;: &quot;chrome&quot;, &quot;901&quot;: &quot;firefox&quot;, &quot;676&quot;: &quot;chrome&quot;, &quot;810&quot;: &quot;internetexplorer&quot;, &quot;337&quot;: &quot;chrome&quot;, &quot;224&quot;: &quot;chrome&quot;, &quot;55&quot;: &quot;chrome&quot;, &quot;537&quot;: &quot;chrome&quot;, &quot;106&quot;: &quot;chrome&quot;, &quot;921&quot;: &quot;firefox&quot;, &quot;352&quot;: &quot;chrome&quot;, &quot;380&quot;: &quot;chrome&quot;, &quot;491&quot;: &quot;chrome&quot;, &quot;600&quot;: &quot;chrome&quot;, &quot;113&quot;: &quot;chrome&quot;, &quot;799&quot;: &quot;internetexplorer&quot;, &quot;503&quot;: &quot;chrome&quot;, &quot;340&quot;: &quot;chrome&quot;, &quot;389&quot;: &quot;chrome&quot;, &quot;506&quot;: &quot;chrome&quot;, &quot;858&quot;: &quot;firefox&quot;, &quot;800&quot;: &quot;internetexplorer&quot;, &quot;418&quot;: &quot;chrome&quot;, &quot;124&quot;: &quot;chrome&quot;, &quot;215&quot;: &quot;chrome&quot;, &quot;835&quot;: &quot;firefox&quot;, &quot;937&quot;: &quot;safari&quot;, &quot;318&quot;: &quot;chrome&quot;, &quot;283&quot;: &quot;chrome&quot;, &quot;662&quot;: &quot;chrome&quot;, &quot;653&quot;: &quot;chrome&quot;, &quot;951&quot;: &quot;safari&quot;, &quot;694&quot;: &quot;chrome&quot;, &quot;832&quot;: &quot;firefox&quot;, &quot;624&quot;: &quot;chrome&quot;, &quot;807&quot;: &quot;internetexplorer&quot;, &quot;939&quot;: &quot;safari&quot;, &quot;551&quot;: &quot;chrome&quot;, &quot;977&quot;: &quot;opera&quot;, &quot;356&quot;: &quot;chrome&quot;, &quot;843&quot;: &quot;firefox&quot;, &quot;459&quot;: &quot;chrome&quot;, &quot;329&quot;: &quot;chrome&quot;, &quot;582&quot;: &quot;chrome&quot;, &quot;176&quot;: &quot;chrome&quot;, &quot;670&quot;: &quot;chrome&quot;, &quot;771&quot;: &quot;chrome&quot;, &quot;247&quot;: &quot;chrome&quot;, &quot;682&quot;: &quot;chrome&quot;, &quot;504&quot;: &quot;chrome&quot;, &quot;338&quot;: &quot;chrome&quot;, &quot;21&quot;: &quot;chrome&quot;, &quot;397&quot;: &quot;chrome&quot;, &quot;770&quot;: &quot;chrome&quot;, &quot;576&quot;: &quot;chrome&quot;, &quot;817&quot;: &quot;firefox&quot;, &quot;535&quot;: &quot;chrome&quot;, &quot;940&quot;: &quot;safari&quot;, &quot;292&quot;: &quot;chrome&quot;, &quot;157&quot;: &quot;chrome&quot;, &quot;347&quot;: &quot;chrome&quot;, &quot;955&quot;: &quot;safari&quot;, &quot;197&quot;: &quot;chrome&quot;, &quot;14&quot;: &quot;chrome&quot;, &quot;981&quot;: &quot;opera&quot;, &quot;541&quot;: &quot;chrome&quot;, &quot;4&quot;: &quot;chrome&quot;, &quot;217&quot;: &quot;chrome&quot;, &quot;805&quot;: &quot;internetexplorer&quot;, &quot;743&quot;: &quot;chrome&quot;, &quot;529&quot;: &quot;chrome&quot;, &quot;88&quot;: &quot;chrome&quot;, &quot;147&quot;: &quot;chrome&quot;, &quot;122&quot;: &quot;chrome&quot;, &quot;9&quot;: &quot;chrome&quot;, &quot;736&quot;: &quot;chrome&quot;, &quot;971&quot;: &quot;opera&quot;, &quot;365&quot;: &quot;chrome&quot;, &quot;517&quot;: &quot;chrome&quot;, &quot;500&quot;: &quot;chrome&quot;, &quot;154&quot;: &quot;chrome&quot;, &quot;277&quot;: &quot;chrome&quot;, &quot;213&quot;: &quot;chrome&quot;, &quot;969&quot;: &quot;opera&quot;, &quot;809&quot;: &quot;internetexplorer&quot;, &quot;567&quot;: &quot;chrome&quot;, &quot;70&quot;: &quot;chrome&quot;, &quot;859&quot;: &quot;firefox&quot;, &quot;41&quot;: &quot;chrome&quot;, &quot;307&quot;: &quot;chrome&quot;, &quot;458&quot;: &quot;chrome&quot;, &quot;655&quot;: &quot;chrome&quot;, &quot;265&quot;: &quot;chrome&quot;, &quot;923&quot;: &quot;firefox&quot;, &quot;658&quot;: &quot;chrome&quot;, &quot;732&quot;: &quot;chrome&quot;, &quot;935&quot;: &quot;firefox&quot;, &quot;165&quot;: &quot;chrome&quot;, &quot;652&quot;: &quot;chrome&quot;, &quot;777&quot;: &quot;internetexplorer&quot;, &quot;18&quot;: &quot;chrome&quot;, &quot;229&quot;: &quot;chrome&quot;, &quot;427&quot;: &quot;chrome&quot;, &quot;447&quot;: &quot;chrome&quot;, &quot;729&quot;: &quot;chrome&quot;, &quot;53&quot;: &quot;chrome&quot;, &quot;160&quot;: &quot;chrome&quot;, &quot;57&quot;: &quot;chrome&quot;, &quot;378&quot;: &quot;chrome&quot;, &quot;542&quot;: &quot;chrome&quot;, &quot;554&quot;: &quot;chrome&quot;, &quot;62&quot;: &quot;chrome&quot;, &quot;360&quot;: &quot;chrome&quot;, &quot;250&quot;: &quot;chrome&quot;, &quot;150&quot;: &quot;chrome&quot;, &quot;944&quot;: &quot;safari&quot;, &quot;363&quot;: &quot;chrome&quot;, &quot;566&quot;: &quot;chrome&quot;, &quot;841&quot;: &quot;firefox&quot;, &quot;619&quot;: &quot;chrome&quot;, &quot;248&quot;: &quot;chrome&quot;, &quot;313&quot;: &quot;chrome&quot;, &quot;825&quot;: &quot;firefox&quot;, &quot;156&quot;: &quot;chrome&quot;, &quot;333&quot;: &quot;chrome&quot;, &quot;228&quot;: &quot;chrome&quot;, &quot;226&quot;: &quot;chrome&quot;, &quot;43&quot;: &quot;chrome&quot;, &quot;444&quot;: &quot;chrome&quot;, &quot;904&quot;: &quot;firefox&quot;, &quot;925&quot;: &quot;firefox&quot;, &quot;788&quot;: &quot;internetexplorer&quot;, &quot;173&quot;: &quot;chrome&quot;, &quot;612&quot;: &quot;chrome&quot;, &quot;325&quot;: &quot;chrome&quot;, &quot;181&quot;: &quot;chrome&quot;, &quot;710&quot;: &quot;chrome&quot;, &quot;953&quot;: &quot;safari&quot;, &quot;705&quot;: &quot;chrome&quot;, &quot;231&quot;: &quot;chrome&quot;, &quot;966&quot;: &quot;safari&quot;, &quot;128&quot;: &quot;chrome&quot;, &quot;772&quot;: &quot;internetexplorer&quot;, &quot;65&quot;: &quot;chrome&quot;, &quot;404&quot;: &quot;chrome&quot;, &quot;239&quot;: &quot;chrome&quot;, &quot;924&quot;: &quot;firefox&quot;, &quot;279&quot;: &quot;chrome&quot;, &quot;502&quot;: &quot;chrome&quot;, &quot;864&quot;: &quot;firefox&quot;, &quot;750&quot;: &quot;chrome&quot;, &quot;413&quot;: &quot;chrome&quot;, &quot;889&quot;: &quot;firefox&quot;, &quot;712&quot;: &quot;chrome&quot;, &quot;35&quot;: &quot;chrome&quot;, &quot;668&quot;: &quot;chrome&quot;, &quot;276&quot;: &quot;chrome&quot;, &quot;456&quot;: &quot;chrome&quot;, &quot;739&quot;: &quot;chrome&quot;, &quot;834&quot;: &quot;firefox&quot;, &quot;417&quot;: &quot;chrome&quot;, &quot;740&quot;: &quot;chrome&quot;, &quot;578&quot;: &quot;chrome&quot;, &quot;262&quot;: &quot;chrome&quot;, &quot;572&quot;: &quot;chrome&quot;, &quot;765&quot;: &quot;chrome&quot;, &quot;513&quot;: &quot;chrome&quot;, &quot;6&quot;: &quot;chrome&quot;, &quot;667&quot;: &quot;chrome&quot;, &quot;831&quot;: &quot;firefox&quot;, &quot;320&quot;: &quot;chrome&quot;, &quot;780&quot;: &quot;internetexplorer&quot;, &quot;312&quot;: &quot;chrome&quot;, &quot;116&quot;: &quot;chrome&quot;, &quot;822&quot;: &quot;firefox&quot;, &quot;773&quot;: &quot;internetexplorer&quot;, &quot;364&quot;: &quot;chrome&quot;, &quot;17&quot;: &quot;chrome&quot;, &quot;526&quot;: &quot;chrome&quot;, &quot;390&quot;: &quot;chrome&quot;, &quot;926&quot;: &quot;firefox&quot;, &quot;883&quot;: &quot;firefox&quot;, &quot;962&quot;: &quot;safari&quot;, &quot;752&quot;: &quot;chrome&quot;, &quot;403&quot;: &quot;chrome&quot;, &quot;558&quot;: &quot;chrome&quot;, &quot;354&quot;: &quot;chrome&quot;, &quot;709&quot;: &quot;chrome&quot;, &quot;631&quot;: &quot;chrome&quot;, &quot;539&quot;: &quot;chrome&quot;, &quot;522&quot;: &quot;chrome&quot;, &quot;435&quot;: &quot;chrome&quot;, &quot;98&quot;: &quot;chrome&quot;, &quot;783&quot;: &quot;internetexplorer&quot;, &quot;912&quot;: &quot;firefox&quot;, &quot;768&quot;: &quot;chrome&quot;, &quot;589&quot;: &quot;chrome&quot;, &quot;267&quot;: &quot;chrome&quot;, &quot;680&quot;: &quot;chrome&quot;, &quot;36&quot;: &quot;chrome&quot;, &quot;242&quot;: &quot;chrome&quot;, &quot;120&quot;: &quot;chrome&quot;, &quot;398&quot;: &quot;chrome&quot;, &quot;476&quot;: &quot;chrome&quot;, &quot;866&quot;: &quot;firefox&quot;, &quot;135&quot;: &quot;chrome&quot;, &quot;85&quot;: &quot;chrome&quot;, &quot;436&quot;: &quot;chrome&quot;, &quot;89&quot;: &quot;chrome&quot;, &quot;233&quot;: &quot;chrome&quot;, &quot;316&quot;: &quot;chrome&quot;, &quot;811&quot;: &quot;internetexplorer&quot;, &quot;475&quot;: &quot;chrome&quot;, &quot;91&quot;: &quot;chrome&quot;, &quot;178&quot;: &quot;chrome&quot;, &quot;269&quot;: &quot;chrome&quot;, &quot;58&quot;: &quot;chrome&quot;, &quot;672&quot;: &quot;chrome&quot;, &quot;350&quot;: &quot;chrome&quot;, &quot;979&quot;: &quot;opera&quot;, &quot;314&quot;: &quot;chrome&quot;, &quot;234&quot;: &quot;chrome&quot;, &quot;105&quot;: &quot;chrome&quot;, &quot;270&quot;: &quot;chrome&quot;, &quot;202&quot;: &quot;chrome&quot;, &quot;287&quot;: &quot;chrome&quot;, &quot;604&quot;: &quot;chrome&quot;, &quot;894&quot;: &quot;firefox&quot;, &quot;311&quot;: &quot;chrome&quot;, &quot;562&quot;: &quot;chrome&quot;, &quot;735&quot;: &quot;chrome&quot;, &quot;251&quot;: &quot;chrome&quot;, &quot;144&quot;: &quot;chrome&quot;, &quot;857&quot;: &quot;firefox&quot;, &quot;416&quot;: &quot;chrome&quot;, &quot;317&quot;: &quot;chrome&quot;, &quot;30&quot;: &quot;chrome&quot;, &quot;703&quot;: &quot;chrome&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/24/‘win10启动项消失的恢复方法/" rel="next" title="‘win10启动项消失的恢复方法'">
+                <i class="fa fa-chevron-left"></i> ‘win10启动项消失的恢复方法'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ek1n</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ek1n</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
